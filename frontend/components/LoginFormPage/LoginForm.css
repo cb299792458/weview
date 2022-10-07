@@ -1,0 +1,15 @@
+h1 {
+    color: purple;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    
+    display: flex;
+    justify-content: center;
+}
+
+button:hover{
+    color: green;
+}
