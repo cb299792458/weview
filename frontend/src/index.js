@@ -20,6 +20,7 @@ function Root() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <h1>Welcome to WeView</h1>
         <App />
       </BrowserRouter>
     </Provider>

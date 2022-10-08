@@ -1,19 +1,20 @@
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-// import LoginFormPage from "./components/LoginFormPage";
+import LoginFormPage from "./components/LoginFormPage";
 import React from "react";
-// import SignUpForm from "./components/SignUpForm";
-// import { Navigation } from "./components/Navigation";
+// import ReactDom from "react-dom";
+import SignUpForm from "./components/SignupFormPage";
+import { Navigation } from "./components/Navigation";
 
 function App() {
   return (
     <>
-      {/* <Navigation /> */}
+      <Navigation />
       <Switch>
         <Route path="/login">
-          {/* <LoginFormPage /> */}
+          <LoginFormPage />
         </Route>
         <Route path="/signup">
-          {/* <SignUpForm /> */}
+          <SignUpForm />
         </Route>
       </Switch>
     </>
