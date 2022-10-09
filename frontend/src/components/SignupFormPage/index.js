@@ -19,20 +19,12 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signupUser({ email, username, password }))
-        .catch(async (res) => {
-        let data;
-        try {
-          // .clone() essentially allows you to read the response body twice
-          data = await res.clone().json();
-        } catch {
-          data = await res.text(); // Will hit this case if the server is down
-        }
-        if (data && data.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
-    }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+        .catch(async (data) => {
+          // console.log(data)
+          setErrors(data.errors);
+    });};
+
+    return setErrors(['Passwords Must Match']);
   };
 
   return (

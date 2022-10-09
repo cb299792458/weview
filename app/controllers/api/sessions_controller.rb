@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
       # render json: {user: @user}
       render "api/users/show"
     else
-      render json: { errors: ['Invalid Username/Password Combination'], status: :unauthorized }
+      render json: { errors: ['Invalid Credential Combination'], status: :unauthorized }
     end
   end
 
