@@ -1,83 +1,84 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import { signUpUser } from "../../store/session";
-import './SignupForm.css';
+import { Redirect } from "react-router-dom";
+import * as sessionActions from "../../store/session";
 
+function SignupFormPage() {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
-const SignUpForm = () => {
+  if (sessionUser) return <Redirect to="/" />;
 
-    const dispatch = useDispatch();
-
-    const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-
-    // Redirect if you are logged in
-    const sessionUser = useSelector(state => state.session.user);
-    if (sessionUser) return <Redirect to="/" />;
-
-    const user = {
-        email,
-        username,
-        password
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password === confirmPassword) {
+      setErrors([]);
+      return dispatch(sessionActions.signupUser({ email, username, password }))
+        .catch(async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
+        }
+        if (data && data.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
     }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setErrors([])
-        return dispatch(signUpUser(user))
-            .catch(async (data) => {
-            setErrors(data.errors)
-        }) // catch errors later
+    return setErrors(['Confirm Password field must be the same as the Password field']);
+  };
 
-    }
-
-    return(
-        <>
-            <h1>Sign Up</h1>
-            <ul>
-                {errors.map(error => {
-                    return (
-                        <li key={error}>{error}</li>
-                    )
-                })}
-            </ul>
-
-            <form onSubmit={handleSubmit}>
-                <label>Email
-                    <input
-                        type="text"
-                        value={email}
-                        onChange={ e => setEmail(e.target.value) }
-                        required>
-                    
-                    </input>
-                </label>
-                <label>Username
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={ e => setUsername(e.target.value) }
-                        required>
-                    
-                    </input>
-                </label>
-                <label>Password
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={ e => setPassword(e.target.value) }
-                        required>
-                    
-                    </input>
-                </label>
-
-                <button type="submit">Sign Up</button>
-
-            </form>
-        </>
-    )
+  return (
+    <form onSubmit={handleSubmit}>
+      <ul>
+        {errors.map(error => <li key={error}>{error}</li>)}
+      </ul>
+      <label>
+        Email
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Username
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Confirm Password
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+      </label>
+      <button type="submit">Sign Up</button>
+    </form>
+  );
 }
 
-export default SignUpForm;
+export default SignupFormPage;

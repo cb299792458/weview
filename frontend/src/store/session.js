@@ -18,7 +18,7 @@ export const createUser = (user) => ({
     user
 })
 
-export const signUpUser = user => async dispatch => {
+export const signupUser = (user) => async(dispatch) => {
     const res = await csrfFetch(CREATE_USER, {
         method: 'POST',
         body: JSON.stringify(user)
@@ -37,7 +37,7 @@ export const signUpUser = user => async dispatch => {
 
 }
 
-export const loginUser = user => async dispatch => {
+export const loginUser = (user) => async(dispatch) => {
     const res = await csrfFetch(SET_USER, {
         method: 'POST',
         body: JSON.stringify(user)

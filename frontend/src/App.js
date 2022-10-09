@@ -1,20 +1,21 @@
-import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-import LoginFormPage from "./components/LoginFormPage";
 import React from "react";
-// import ReactDom from "react-dom";
-import SignUpForm from "./components/SignupFormPage";
-import { Navigation } from "./components/Navigation";
+import { Route, Switch } from "react-router-dom";
+import LoginFormPage from "./components/LoginFormPage";
+import Navigation from "./components/Navigation";
+import SignupFormPage from "./components/SignupFormPage";
 
 function App() {
+
   return (
     <>
+      <h1>Welcome to WeView</h1>
       <Navigation />
       <Switch>
         <Route path="/login">
           <LoginFormPage />
         </Route>
         <Route path="/signup">
-          <SignUpForm />
+          <SignupFormPage />
         </Route>
       </Switch>
     </>
