@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_08_215117) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_230136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,4 +26,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_215117) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.bigint "uploader_id"
+    t.string "title", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uploader_id"], name: "index_videos_on_uploader_id"
+  end
+
+  add_foreign_key "videos", "users", column: "uploader_id"
 end

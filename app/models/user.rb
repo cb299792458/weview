@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
   has_secure_password
   validates :username, :email, :session_token, presence: true, uniqueness: true
@@ -8,6 +20,10 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..255 }, allow_nil: true
 
   before_validation :ensure_session_token
+
+  has_many :videos,
+    foreign_key: :uploader_id,
+    class_name: :Video
 
   def self.find_by_credentials(credential,password)
 
