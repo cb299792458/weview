@@ -12,7 +12,7 @@ const Navigation = () => {
     
     const handleLogOut = () => {
         dispatch(sessionActions.logoutUser(sessionUser.id))
-        return (<Redirect to="/signup" />);
+        return (<Redirect to="/" />);
     }
 
     if (sessionUser){

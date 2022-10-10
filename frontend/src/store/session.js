@@ -61,6 +61,7 @@ export const logoutUser = userId => async dispatch => {
     dispatch(removeUser(userId)) // don't need id
     return res;
 }
+
 const storeCurrentUser = user => {
     if (user) {
         const data = JSON.stringify(user)
