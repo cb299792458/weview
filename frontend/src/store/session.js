@@ -1,8 +1,8 @@
 import csrfFetch, { storeCSRFToken } from "./csrf"
 
-export const SET_USER = '/api/session'
-export const REMOVE_USER = '/api/session'
-export const CREATE_USER = '/api/users'
+export const SET_USER = '/api/session';
+export const REMOVE_USER = '/api/session';
+export const CREATE_USER = '/api/users';
 
 export const setUser = (user) => ({
     type: SET_USER,

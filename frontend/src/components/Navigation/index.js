@@ -34,11 +34,11 @@ const Navigation = () => {
         return(
             <>
                 <h2>You are not logged in.</h2>
-                <Link to="login">Log In</Link>
+                <Link to="/login">Log In</Link>
                 <br></br>
-                <Link to="signup">Sign Up</Link>
+                <Link to="/signup">Sign Up</Link>
                 <br></br>
-                <Link to="#" onClick={handleClick}>Demo User</Link>
+                <Link to="/" onClick={handleClick}>Demo User</Link>
             </>
         )
     }

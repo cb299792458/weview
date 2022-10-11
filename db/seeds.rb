@@ -29,6 +29,13 @@ ApplicationRecord.transaction do
         email: 'goat@gmail.com', 
         password: 'password'
     )
+    v = Video.create!(
+        uploader_id: 1,
+        title: 'cute cat',
+        description: 'clip of chi programming a fullstack project'
+    )
+    chi = File.open('app/chi.mp4')
+    v.upload.attach(io: chi, filename: 'chi,mp4')
   
 
 
