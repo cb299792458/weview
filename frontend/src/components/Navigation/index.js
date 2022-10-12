@@ -6,9 +6,9 @@ import * as sessionActions from "../../store/session";
 
 const Navigation = () => {
 
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user);
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     
     const handleLogOut = () => {
         dispatch(sessionActions.logoutUser(sessionUser.id))
@@ -20,6 +20,9 @@ const Navigation = () => {
             <>
                 <h2>Hello, {sessionUser.username}.</h2>
                 <button onClick={handleLogOut}>Logout</button>
+                <Link to="/videos/1">Cute Cat</Link>
+                <br></br>
+                <Link to="/videos/new">Upload</Link>
             </>
         )
     } else {

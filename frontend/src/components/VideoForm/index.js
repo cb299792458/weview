@@ -1,30 +1,45 @@
 import { useState } from 'react';
 import React from 'react';
+import csrfFetch from '../../store/csrf';
+import { useSelector } from 'react-redux';
 
 function VideoForm () {
     const [title, setTitle] = useState ("");
     const [description, setDescription] = useState ("");
     const [videoFile, setVideoFile] = useState(null)
+    const sessionUser = useSelector(state => state.session.user);
 
     const handleSubmit = async e => {
         e.preventDefault();
 
-        e.preventDefault();
         const formData = new FormData();
         formData.append('video[title]', title);
         formData.append('video[description]', description);
+        formData.append('video[uploader_id', sessionUser.id);
         if (videoFile) {
-          formData.append('video[file]', videoFile);
+          formData.append('video[upload]', videoFile);
         }   // TEST THIS (STEP 7)
 
-        setTitle("");
-        setDescription("");
+        // Upload?
+        const res = await csrfFetch('/api/videos', {
+            method: 'POST',
+            body: formData
+        });
+
+        if(res.ok){
+            const message = await res.json();
+            // console.log(message.message);
+            setTitle("");
+            setDescription("");
+            setVideoFile(null);
+        }
+
     }
 
     const handleFile = e => {
         const file = e.currentTarget.files[0];
         setVideoFile(file);
-        console.log(file);
+        // console.log(file);
     }
 
     return (

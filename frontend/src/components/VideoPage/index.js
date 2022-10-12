@@ -18,6 +18,7 @@ function VideoPage() {
             <>
                 <video src={video.videoUrl} alt="" controls/>
                 <h2>{video.title}</h2>
+                <h4>{`Uploaded by User ${video.uploader_id}`}</h4>
                 <p>{video.description}</p>
             </>
         )

@@ -6,9 +6,18 @@ class Api::VideosController < ApplicationController
             # render "api/videos/show"
             render :show
         else
-            # write this
+            render json: {message: "Video not found!"}, status: 404
         end
 
+    end
+
+    def create
+        video = Video.new(video_params)
+        if video.save
+            render json: {message: "You did it!"}
+        else
+            render json: video.errors.full_messages, status: 422
+        end
     end
 
     def index 
@@ -18,8 +27,8 @@ class Api::VideosController < ApplicationController
 
 
 
-    # def video_params
-    #     params.require(:video).permit(:id)
-    # end
+    def video_params
+        params.require(:video).permit(:title, :upload, :description, :uploader_id)
+    end
 
 end

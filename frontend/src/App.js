@@ -36,9 +36,6 @@ function App() {
         <Route exact path='/'>
           <h1>Home</h1>
         </Route>
-        {/* <Route path='/favicon.ico'>
-          <image src={favicon} alt=""/>
-        </Route> */}
         <Route>
           <h1>Page Not Found</h1>
         </Route>
