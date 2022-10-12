@@ -14,7 +14,7 @@ class Api::VideosController < ApplicationController
     def create
         video = Video.new(video_params)
         if video.save
-            render json: {message: "You did it!"}
+            render json: {message: "You did it!", id: video.id}
         else
             render json: video.errors.full_messages, status: 422
         end
@@ -25,7 +25,7 @@ class Api::VideosController < ApplicationController
     end
 
 
-
+    private
 
     def video_params
         params.require(:video).permit(:title, :upload, :description, :uploader_id)

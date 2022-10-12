@@ -13,7 +13,7 @@ function VideoPage() {
         dispatch(fetchVideo(videoId));
     }, []);
 
-    if(video){
+    if(video && video.videoUrl){
         return(
             <>
                 <video src={video.videoUrl} alt="" controls/>
@@ -21,6 +21,10 @@ function VideoPage() {
                 <h4>{`Uploaded by User #${video.uploaderId}`}</h4>
                 <p>{video.description}</p>
             </>
+        )
+    } else {
+        return(
+            <h1>Video Not Found</h1>
         )
     }
 

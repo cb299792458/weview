@@ -2,6 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import csrfFetch from '../../store/csrf';
 import { useSelector } from 'react-redux';
+// import { useNavigate } from "react-router-dom";
 
 function VideoForm () {
     const [title, setTitle] = useState ("");
@@ -28,10 +29,14 @@ function VideoForm () {
 
         if(res.ok){
             // const message = await res.json();
-            // console.log(message.message);
+            // console.log("HEY");
+            // console.log(message);
             setTitle("");
             setDescription("");
             setVideoFile(null);
+            
+
+            // REDIRECT HERE
         }
 
     }
@@ -44,20 +49,20 @@ function VideoForm () {
 
     return (
         <form onSubmit={handleSubmit}>
-        <label>Title
-        <input type="text"
-            value={title}
-            onChange={(e)=>setTitle(e.target.value)}/>
-        </label>
-        <label>Description
+            <label>Title
             <input type="text"
-                value={description}
-                onChange={(e)=>setDescription(e.target.value)}/>
-        </label>
+                value={title}
+                onChange={(e)=>setTitle(e.target.value)}/>
+            </label>
+            <label>Description
+                <input type="text"
+                    value={description}
+                    onChange={(e)=>setDescription(e.target.value)}/>
+            </label>
 
-        <input type="file" onChange={handleFile}/>
+            <input type="file" onChange={handleFile}/>
 
-        <button type="submit">Upload Video</button>
+            <button type="submit">Upload Video</button>
         </form>
     );
 }
