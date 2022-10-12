@@ -27,7 +27,7 @@ function VideoForm () {
         });
 
         if(res.ok){
-            const message = await res.json();
+            // const message = await res.json();
             // console.log(message.message);
             setTitle("");
             setDescription("");
