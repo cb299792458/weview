@@ -6,7 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import VideoPage from "./components/VideoPage";
 import VideoForm from "./components/VideoForm";
 import logo from './logo.png';
-import VideoIndex from "./components/VideoIndex";
+import DevelopmentIndex from "./components/DevelopmentIndex";
 // import favicon from './favicon.ico'
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         </Route>
         <Route exact path='/'>
           <h1>Home</h1>
-          <VideoIndex/>
+          <DevelopmentIndex />
         </Route>
         <Route>
           <h1>Page Not Found</h1>

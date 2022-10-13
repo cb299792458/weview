@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  
+
   wrap_parameters include: User.attribute_names + ['password']
 
   def create
@@ -20,6 +20,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: params[:id])
+    if @user
+      render :show
+    else
+      render json: {message: "User not found!"}, status: 404
+    end
+
   end
 
   private

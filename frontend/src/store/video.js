@@ -10,8 +10,6 @@ export const getVideos = ({videos}) => {
 export const getVideo = (videoId) => {
     return(
         (store) => {
-            // console.log(store, "STORE");
-            // console.log(store.videos[videoId]);
             return store.videos[videoId]
         }
     )
