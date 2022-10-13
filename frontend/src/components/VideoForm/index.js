@@ -2,13 +2,14 @@ import { useState } from 'react';
 import React from 'react';
 import csrfFetch from '../../store/csrf';
 import { useSelector } from 'react-redux';
-// import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function VideoForm () {
     const [title, setTitle] = useState ("");
     const [description, setDescription] = useState ("");
     const [videoFile, setVideoFile] = useState(null)
     const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -28,15 +29,13 @@ function VideoForm () {
         });
 
         if(res.ok){
-            // const message = await res.json();
-            // console.log("HEY");
-            // console.log(message);
+            const message = await res.json();
+            
             setTitle("");
             setDescription("");
             setVideoFile(null);
-            
 
-            // REDIRECT HERE
+            history.push(`/videos/${message.id}`)
         }
 
     }

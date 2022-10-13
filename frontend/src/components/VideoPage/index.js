@@ -13,7 +13,7 @@ function VideoPage() {
         dispatch(fetchVideo(videoId));
     }, []);
 
-    if(video && video.videoUrl){
+    if(video){
         return(
             <>
                 <video src={video.videoUrl} alt="" controls/>
