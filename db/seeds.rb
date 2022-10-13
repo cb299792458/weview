@@ -36,10 +36,8 @@ ApplicationRecord.transaction do
         title: 'cute cat',
         description: 'kitten programming a fullstack project'
     )
-    # chi = File.open('app/chi.mp4')
-    # v.upload.attach(io: chi, filename: 'chi.mp4')
-  
-
+    chi = File.open('app/chi.mp4')
+    v.upload.attach(io: chi, filename: 'chi.mp4')
 
     # More users
     # 10.times do 

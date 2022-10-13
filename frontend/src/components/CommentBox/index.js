@@ -1,12 +1,12 @@
 import React from "react";
 
-function CommentBox(props) {
-    // console.log(props.vid);
+function CommentBox({vid}) {
+    console.log(vid);
 
     return(
         <div>
             <h3>Comments</h3>
-            {/* <p> yo {props.vid}</p> */}
+            <p> yo</p>
         </div>
     )
 }
