@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import {getVideo, fetchVideo} from '../../store/video'
 import CommentBox from "../CommentBox";
 import './VideoPage.css';
+import { VideoPlayer } from "./VideoPlayer";
 
 function VideoPage() {
     const dispatch = useDispatch();
@@ -23,18 +24,19 @@ function VideoPage() {
 
 
     if(video){
-        return(
-            <div className="theater">
-                <div>
-                    {vid = <video src={video.videoUrl} alt="" controls/>}
-                    {/* {viddy} */}
-                    <h2>{video.title}</h2>
-                    <h4>{`Uploaded by User: ${video.uploader}`}</h4>
-                    <p>{video.description}</p>
-                </div>
-                <CommentBox vid={vid}/>
-            </div>
-        )
+        return(<VideoPlayer url={video.videoUrl} />)
+        // return(
+        //     <div className="theater">
+        //         <div>
+        //             {vid = <video src={video.videoUrl} alt="" controls/>}
+        //             {/* {viddy} */}
+        //             <h2>{video.title}</h2>
+        //             <h4>{`Uploaded by User: ${video.uploader}`}</h4>
+        //             <p>{video.description}</p>
+        //         </div>
+        //         <CommentBox vid={vid}/>
+        //     </div>
+        // )
     } else {
         return(
             <h1>Video Not Found</h1>
