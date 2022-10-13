@@ -6,7 +6,7 @@ function CommentBox(props) {
     return(
         <div>
             <h3>Comments</h3>
-            <p> yo {props.vid}</p>
+            {/* <p> yo {props.vid}</p> */}
         </div>
     )
 }
