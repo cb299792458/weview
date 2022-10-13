@@ -1,7 +1,7 @@
 import React from "react";
 
 function CommentBox(props) {
-    console.log(props.vid);
+    // console.log(props.vid);
 
     return(
         <div>
