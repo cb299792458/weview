@@ -20,7 +20,6 @@ const Navigation = () => {
             <>
                 <h2>Hello, {sessionUser.username}.</h2>
                 <button onClick={handleLogOut}>Logout</button>
-                <Link to="/videos/1">Cute Cat</Link>
                 <br></br>
                 <Link to="/videos/new">Upload</Link>
             </>
