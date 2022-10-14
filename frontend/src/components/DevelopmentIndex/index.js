@@ -26,6 +26,7 @@ function DevelopmentIndex(){
                         </li>
                 })}
             </ul>
+            
             <h2>All Users</h2>
             <ul>
                 {users.map( (user) => {

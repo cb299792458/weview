@@ -25,6 +25,10 @@ class User < ApplicationRecord
     foreign_key: :uploader_id,
     class_name: :Video
 
+  has_many :comments,
+    foreign_key: :commenter_id,
+    class_name: :Comment
+
   def self.find_by_credentials(credential,password)
 
     if URI::MailTo::EMAIL_REGEXP.match(credential)

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id          :bigint           not null, primary key
+#  uploader_id :bigint
+#  title       :string           not null
+#  description :text             not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class Video < ApplicationRecord
     validates :title, :description, presence: true
     validates :title, uniqueness: {scope: :uploader, message: "title already used"}
@@ -7,5 +18,9 @@ class Video < ApplicationRecord
         class_name: :User
 
     has_one_attached :upload
+
+    has_many :comments,
+        foreign_key: :video_id,
+        class_name: :Comment
     
 end
