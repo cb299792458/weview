@@ -4,8 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import {getVideo, fetchVideo} from '../../store/video'
 import CommentBox from "../CommentBox";
 import './VideoPage.css';
-// import { VideoPlayer } from "./VideoPlayer";
-import ReactPlayer from "react-player";
 
 function VideoPage() {
     const dispatch = useDispatch();
@@ -15,41 +13,26 @@ function VideoPage() {
     
     useEffect( () => {
         dispatch(fetchVideo(videoId));
-        time.current = time.current +1
     }, []);
     
-    const [timer, setTimer] = useState(0);
+    const [timeDisplay, setTimeDisplay] = useState(true);
     const time = useRef(0);
 
-    // const handleTime = (e) => console.log(document.getElementById("vid").currentTime); //this is the time
-    const handleTime = (e) => {
+    const displayTime = (e) => {
         time.current = document.getElementById("vid").currentTime;
-        setTimer(timer+1);
+
+        setTimeDisplay(!timeDisplay); // This does nothing except rerender the timer.
     }
 
     const vid = <video 
         id="vid"
         src={ video ? video.videoUrl : null} 
         alt="" controls
-        onTimeUpdate={handleTime}
-        // onTimeUpdate={myFunction}
+        onTimeUpdate={displayTime}
     />
     
-    // function myFunction() {
-    //     document.getElementById("demo").innerHTML = "You moved to position " + document.getElementById("vid").currentTime
-    //                       }
-    
-    
     if(video){
-
-        // const vid = document.createElement('video');
-        // vid.setAttribute("src",video.videoUrl);
-
-
         const comments = video.comments;
-        // return(<ReactPlayer playing={true}
-        //     url={file}/>)
-        // return(<VideoPlayer url={video.videoUrl} />)
         return(
             <div className="theater">
                 <div>
@@ -57,20 +40,13 @@ function VideoPage() {
                     
                     <p id="demo">Move to a new position in the video:</p>
 
-                    <button onClick={() => {setTimer(timer+1)}}>press</button>
-                    {/* {(myFunction())} */}
-
                     <h2>{video.title}</h2>
                     <h4>{`Uploaded by User: ${video.uploader}`}</h4>
                     <p>{video.description}</p>
-                    {/* <p>If this worked, the time would be: {vid.currentTime = 0}s</p> */}
                     
                     <p>If this worked, the time would be: {time.current}</p>
                 </div>
-                <CommentBox vid={vid} comments={comments ? comments : null}/>
-
-
-
+                {comments ? <CommentBox vid={vid} comments={comments}/> : <p>loading comments</p>}
             </div>
         )
     } else {
