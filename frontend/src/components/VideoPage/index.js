@@ -17,18 +17,20 @@ function VideoPage() {
     
     const [timeDisplay, setTimeDisplay] = useState(true);
     const time = useRef(0);
+    const duration = useRef(0);
 
-    const displayTime = (e) => {
+    const updateTime = (e) => {
         time.current = document.getElementById("vid").currentTime;
-
+        duration.current = document.getElementById("vid").duration;
+        
         setTimeDisplay(!timeDisplay); // This does nothing except rerender the timer.
     }
-
+    
     const vid = <video 
-        id="vid"
-        src={ video ? video.videoUrl : null} 
-        alt="" controls
-        onTimeUpdate={displayTime}
+    id="vid"
+    src={ video ? video.videoUrl : null} 
+    alt="" controls
+    onTimeUpdate={updateTime}
     />
     
     if(video){
@@ -38,15 +40,19 @@ function VideoPage() {
                 <div>
                     {vid || "no vid"}
                     
-                    <p id="demo">Move to a new position in the video:</p>
-
                     <h2>{video.title}</h2>
                     <h4>{`Uploaded by User: ${video.uploader}`}</h4>
                     <p>{video.description}</p>
                     
-                    <p>If this worked, the time would be: {time.current}</p>
                 </div>
-                {comments ? <CommentBox vid={vid} comments={comments}/> : <p>loading comments</p>}
+
+                {comments ? <CommentBox
+                    time={time.current}
+                    comments={comments}
+                    duration={duration.current}
+                    id={videoId}
+                /> : <p>loading comments</p>}
+
             </div>
         )
     } else {

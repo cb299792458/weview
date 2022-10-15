@@ -20,9 +20,8 @@ function VideoForm () {
         formData.append('video[uploader_id', sessionUser.id);
         if (videoFile) {
           formData.append('video[upload]', videoFile);
-        }   // TEST THIS (STEP 7)
+        }
 
-        // Upload?
         const res = await csrfFetch('/api/videos', {
             method: 'POST',
             body: formData

@@ -46,27 +46,43 @@ ApplicationRecord.transaction do
     Comment.create!(
         commenter_id: 2,
         video_id: 1,
-        timestamp: 5,
+        timestamp: 2,
         parent_id: nil,
         body: "So cute! Where is this from?"
     )
 
     Comment.create!(
-        commenter_id: 3,
+        commenter_id: 1,
         video_id: 1,
-        timestamp: 5,
+        timestamp: 3,
         parent_id: 1,
-        body: "Chi's Sweet Home"
+        body: "An old anime, but I forgot the name..."
     )
 
-    # More users
-    # 10.times do 
-    #   User.create!({
-    #     username: Faker::Internet.unique.username(specifier: 3),
-    #     email: Faker::Internet.unique.email,
-    #     password: 'password'
-    #   }) 
-    # end
+    Comment.create!(
+        commenter_id: 3,
+        video_id: 1,
+        timestamp: 4,
+        parent_id: 1,
+        body: "It's Chi's Sweet Home!"
+    )
+
+    Comment.create!(
+        commenter_id: 2,
+        video_id: 1,
+        timestamp: 5,
+        parent_id: 3,
+        body: "Thanks!"
+    )
+
+    Comment.create!(
+        commenter_id: 4,
+        video_id: 1,
+        timestamp: 10,
+        parent_id: nil,
+        body: "This cat programs better than me."
+    )
+
   
     puts "Done!"
   end

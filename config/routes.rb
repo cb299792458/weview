@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index, :show]
     resource :session, only: [:show, :create, :destroy]
     resources :videos, only: [:index, :show, :create]
+    resources :comments, only: :create
   end
 
   get '*path', to: "static_pages#frontend_index"
