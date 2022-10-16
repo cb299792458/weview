@@ -1,35 +1,39 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import csrfFetch from "../../store/csrf";
+import { useDispatch, useSelector } from "react-redux";
+import { writeComment } from "../../store/comment";
+// import csrfFetch from "../../store/csrf";
 
 function Form(props) {
-
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const id = sessionUser.id;
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if(!sessionUser){alert("You must be logged in")}
+        if(!sessionUser){alert("You must be logged in to do that!")}
         else{
             let comment = {
                 body: body,
                 timestamp: props.time, 
                 videoId: props.id,
-                commenterId: sessionUser.id,
+                commenterId: id,
                 parentId: null
             }
-            
-            // console.log(comment);
-            props.comments.push(comment)
+                        
+            // const res = await csrfFetch('/api/comments', {
+            //     method: 'POST',
+            //     body: JSON.stringify({comment: comment})
+            // });
 
-            const res = await csrfFetch('/api/comments', {
-                method: 'POST',
-                body: JSON.stringify({comment: comment})
-            });
-
-            if(res.ok){
-                setBody("");
-            }
+            return dispatch(writeComment(comment))
+                .then(
+                    props.comments.push(comment),
+                    setBody("")
+                )
+                .catch(async (data) => {
+                    setErrors(data.errors);
+                });
         }
     }
     const [body, setBody] = useState("");
@@ -42,6 +46,10 @@ function Form(props) {
 
             </input>
             <button>Comment</button>
+        
+            <ul>
+                {errors && errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
         </form>
     )
 }

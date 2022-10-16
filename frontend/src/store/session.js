@@ -22,7 +22,7 @@ export const signupUser = (user) => async(dispatch) => {
     const res = await csrfFetch(CREATE_USER, {
         method: 'POST',
         body: JSON.stringify(user)
-    })
+    });
     
     let data = await res.json();
 

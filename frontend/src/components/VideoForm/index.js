@@ -42,7 +42,6 @@ function VideoForm () {
     const handleFile = e => {
         const file = e.currentTarget.files[0];
         setVideoFile(file);
-        // console.log(file);
     }
 
     return (

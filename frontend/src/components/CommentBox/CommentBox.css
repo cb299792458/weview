@@ -1,12 +1,15 @@
 #chat {
-    /* color: red; */
     overflow: auto;
-    width: 250px;
+    width: 600px;
     height: 400px;
 }
 
-/* ul {
-    margin: 0;
-    padding: 0;
-    
-} */
+ul ul {
+    padding: 5px 0px 5px 15px;
+}
+
+ul li {
+    list-style-position: inside;
+    margin: 1px;
+    border: 1px solid black;
+}

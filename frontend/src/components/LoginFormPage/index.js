@@ -18,7 +18,6 @@ function LoginFormPage() {
 
     return dispatch(sessionActions.loginUser({credential, password}))
         .catch(async (data) => {
-            // console.log(data)
             setErrors(data.errors);
         });
 }
