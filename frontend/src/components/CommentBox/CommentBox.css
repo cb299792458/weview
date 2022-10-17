@@ -2,6 +2,7 @@
     overflow: auto;
     width: 600px;
     height: 400px;
+    margin: 20px;
 }
 
 ul ul {
@@ -12,4 +13,9 @@ ul li {
     list-style-position: inside;
     margin: 1px;
     border: 1px solid black;
+}
+
+.focus{
+    font-style: italic;
+    color: red;
 }

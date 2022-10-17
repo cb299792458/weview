@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration[7.0]
     create_table :comments do |t|
       t.references :commenter, foreign_key: {to_table: :users}
       t.references :video, foreign_key: {to_table: :videos}
-      t.integer :timestamp, null: false
+      t.float :timestamp, null: false
       t.references :parent, index: true
       t.string :body, null: false
 

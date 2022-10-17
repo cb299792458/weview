@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./form";
 
 function formatTime(time) {
@@ -19,7 +19,18 @@ function CommentBox(props) {
     comments.sort( (a,b) => a.timestamp - b.timestamp );
     let time = props.time;
     const roots = comments.filter( comment => comment.parentId === null);
-    
+    const [focus, setFocus] = useState(null);
+
+    const handleClick = (e) => {
+        setFocus(e.target);
+        e.target.classList.toggle('focus')
+        if(focus){ // HELP
+            console.log(focus.id, "focus id");
+            console.log(e.target.id, "targetid");
+            console.log(focus.id === e.target.id);
+        }
+    }
+
     function formatComment(comment){
 
         const children = comments.filter((otherComment)=>{
@@ -33,9 +44,15 @@ function CommentBox(props) {
                 })}
             </ul>
 
+        
+
         if(time >= comment.timestamp){
             return(
-                <li key={comment.id}>
+                <li key={comment.id} 
+                    id={comment.id} 
+                    onClick={handleClick}
+                    className={ focus && comment.id === focus.id ? "focus" : "" }>
+                
                     {`${comment.commenter} @ ${formatTime(comment.timestamp)}`}
                     <br></br>
                     {`${comment.body}`}
@@ -52,6 +69,7 @@ function CommentBox(props) {
             <div>
                 <div id="chat">
                     { time!==0 ? <h5>Timed Comments at {formatTime(time)} / {formatTime(props.duration)}</h5> : <h5>Timed Comments</h5>} 
+                    <br></br>
                     <ul>
     
                         {roots.map( (root) => {
@@ -60,13 +78,8 @@ function CommentBox(props) {
     
                     </ul>
     
-                    {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. */}
-    
                 </div>
-                <Form time={time} comments={comments} id={props.id}/>
+                <Form time={time} comments={comments} id={props.id} focus={focus}/>
                 {/* ERRORS SHOULD GO HERE */}
             </div>
         )

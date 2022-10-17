@@ -1,4 +1,5 @@
 .theater{
     display: flex;
     justify-content: baseline;
+    margin: 20px;
 }

@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_183423) do
   create_table "comments", force: :cascade do |t|
     t.bigint "commenter_id"
     t.bigint "video_id"
-    t.integer "timestamp", null: false
+    t.float "timestamp", null: false
     t.bigint "parent_id"
     t.string "body", null: false
     t.datetime "created_at", null: false
