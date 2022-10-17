@@ -14,7 +14,7 @@
 class Comment < ApplicationRecord
 
     validates :commenter_id, :video_id, :timestamp, :body, presence: true
-    validates :body, length: { in: 3..255 }
+    validates :body, length: { in: 0..255 }
 
     belongs_to :commenter,
         foreign_key: :commenter_id,
