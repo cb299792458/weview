@@ -6,14 +6,15 @@ import SignupFormPage from "./components/SignupFormPage";
 import VideoPage from "./components/VideoPage";
 import VideoForm from "./components/VideoForm";
 import logo from './logo.png';
+import hamburger from './hamburger.png';
 import DevelopmentIndex from "./components/DevelopmentIndex";
-// import favicon from './favicon.ico'
 
 function App() {
 
   return (
-    <>
+    <div className="everything">
       <div id="top">
+        <img src={hamburger} alt="" />
         <a href="/">
           <img src={logo} alt="WeView logo" height="50"></img>
         </a>
@@ -42,7 +43,7 @@ function App() {
           <h1>Page Not Found</h1>
         </Route>
       </Switch>
-    </>
+    </div>
   );
 }
 

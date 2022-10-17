@@ -1,10 +1,19 @@
 /* TODO Add site wide styles */
-/* #top {
-    border: 4px black solid;
-    background-color: azure;
-    height: 50px;
+#top {
+    /* border: 4px black solid; */
+    padding: 0 16px;
+    height: 56px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-} */
+}
+
+img {
+    height: 20px;
+}
+
+.everything {
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
 

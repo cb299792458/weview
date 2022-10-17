@@ -37,7 +37,7 @@ function CommentBox(props) {
             commentLi.classList.remove('focus');
             // console.log(commentLi);
         });
-        e.target.classList.toggle('focus')
+        // e.target.classList.toggle('focus')
     }
 
     function formatComment(comment){
@@ -57,7 +57,7 @@ function CommentBox(props) {
             <li key={comment.id} 
                 id={comment.id} 
                 onClick={handleClick}
-                className={ focus && focus.id === comment.id ? "focus" : "comment" }> 
+                className={ focus && (focus.id === comment.id) ? "focus" : "comment" }> 
                 
                 {`${comment.commenter} @ ${formatTime(comment.timestamp)}`}
                 <br></br>
