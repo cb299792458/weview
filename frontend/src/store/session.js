@@ -45,7 +45,6 @@ export const loginUser = (user) => async(dispatch) => {
     let data = await res.json();
     
     if(!data.errors){
-        // console.log('res ok')
         dispatch(setUser(data.user));
         return res;
     } else {

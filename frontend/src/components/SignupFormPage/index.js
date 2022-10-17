@@ -20,7 +20,6 @@ function SignupFormPage() {
       setErrors([]);
       return dispatch(sessionActions.signupUser({ email, username, password }))
         .catch(async (data) => {
-          // console.log(data)
           setErrors(data.errors);
     });};
 

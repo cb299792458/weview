@@ -9,7 +9,7 @@ ul ul {
     padding: 5px 0px 5px 15px;
 }
 
-ul li.comment {
+.comment, .focus {
     list-style-position: inside;
     margin: 1px;
     border: 1px solid black;

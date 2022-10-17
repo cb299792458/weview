@@ -20,15 +20,24 @@ function CommentBox(props) {
     let time = props.time;
     const roots = comments.filter( comment => comment.parentId === null);
     const [focus, setFocus] = useState(null);
+    let commentLis = [];
+
+    window.addEventListener('click', (e) => {
+        if(e.target.nodeName !== 'LI'){
+            setFocus(null)
+        }
+    });
 
     const handleClick = (e) => {
+        e.preventDefault();
         setFocus(e.target);
+        commentLis.push(e.target)
+        // console.log(e.target);
+        commentLis.forEach( (commentLi) => {
+            commentLi.classList.remove('focus');
+            // console.log(commentLi);
+        });
         e.target.classList.toggle('focus')
-        if(focus){ // HELP
-            console.log(focus.id, "focus id");
-            console.log(e.target.id, "targetid");
-            console.log(focus.id === e.target.id);
-        }
     }
 
     function formatComment(comment){
@@ -44,20 +53,22 @@ function CommentBox(props) {
                 })}
             </ul>
 
-        
+        const commentLi =
+            <li key={comment.id} 
+                id={comment.id} 
+                onClick={handleClick}
+                className={ focus && focus.id === comment.id ? "focus" : "comment" }> 
+                
+                {`${comment.commenter} @ ${formatTime(comment.timestamp)}`}
+                <br></br>
+                {`${comment.body}`}
+                {children && childrenList}
+            </li>
 
         if(time >= comment.timestamp){
+            // commentLis.push(commentLi);
             return(
-                <li key={comment.id} 
-                    id={comment.id} 
-                    onClick={handleClick}
-                    className={ focus && comment.id === focus.id ? "focus" : "" }>
-                
-                    {`${comment.commenter} @ ${formatTime(comment.timestamp)}`}
-                    <br></br>
-                    {`${comment.body}`}
-                    {children && childrenList}
-                </li>
+                commentLi
             )
         } else {return null}
     }

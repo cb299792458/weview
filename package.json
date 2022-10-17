@@ -21,5 +21,6 @@
   "homepage": "https://github.com/cb299792458/weview#readme",
   "engines": {
     "node": "16.17.1"
-  }
+  },
+  "main": "index.js"
 }
