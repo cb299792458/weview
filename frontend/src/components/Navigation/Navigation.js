@@ -18,7 +18,7 @@ const Navigation = () => {
     if (sessionUser){
         return (
             <>
-                <h2>Hello, {sessionUser.username}.</h2>
+                {/* <h2>Hello, {sessionUser.username}.</h2> */}
                 <button onClick={handleLogOut}>Logout</button>
                 <br></br>
                 <Link to="/videos/new">Upload</Link>
@@ -34,14 +34,14 @@ const Navigation = () => {
         }
 
         return(
-            <>
+            <div id="navigation">
                 <h2>You are not logged in.</h2>
                 <Link to="/login">Log In</Link>
                 <br></br>
                 <Link to="/signup">Sign Up</Link>
                 <br></br>
                 <Link to="/" onClick={handleClick}>Demo User</Link>
-            </>
+            </div>
         )
     }
 }

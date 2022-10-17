@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 #top {
     /* border: 4px black solid; */
-    padding: 0 16px;
+    padding: 0;
     height: 56px;
     display: flex;
     flex-direction: row;
@@ -9,11 +9,44 @@
     align-items: center;
 }
 
-img {
+#logobox, #searchbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    box-sizing: border-box;
+    align-self: flex-start; */
+}
+
+#hamburger {
+    height: 56px;
+    padding: 0px;
+    position: relative;
+}
+
+#logo {
     height: 20px;
+    align-self: flex-start;
+}
+
+
+#searchbox {
+    width: 600px;
+}
+#search {
+    height: 41px;
+    margin-left: 34px;
+    font-size: 16px;
+    flex: 1;
+    /* width: 90%; */
+    max-width: 538px;
 }
 
 .everything {
     font-family: 'Roboto', 'Arial', sans-serif;
+
 }
 

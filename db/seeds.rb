@@ -13,22 +13,22 @@ ApplicationRecord.transaction do
   
     puts "Creating users..."
     # Create some users with an easy to remember username, email, and password:
-    User.create!(
+    l = User.create!(
         username: 'lamb', 
         email: 'lamb@gmail.com', 
         password: 'password'
     )
-    User.create!(
+    s = User.create!(
         username: 'sheep', 
         email: 'sheep@gmail.com', 
         password: 'password'
     )
-    User.create!(
+    k = User.create!(
         username: 'kid', 
         email: 'kid@gmail.com', 
         password: 'password'
     )
-    User.create!(
+    g = User.create!(
         username: 'goat', 
         email: 'goat@gmail.com', 
         password: 'password'
@@ -43,42 +43,42 @@ ApplicationRecord.transaction do
     chi = File.open('app/chi.mp4')
     v.upload.attach(io: chi, filename: 'chi.mp4')
 
-    Comment.create!(
-        commenter_id: 2,
-        video_id: 1,
-        timestamp: 2,
+    c1 = Comment.create!(
+        commenter_id: s.id,
+        video_id: v.id,
+        timestamp: 2.1,
         parent_id: nil,
         body: "So cute! Where is this from?"
     )
 
-    Comment.create!(
-        commenter_id: 1,
-        video_id: 1,
-        timestamp: 3,
-        parent_id: 1,
+    c2 = Comment.create!(
+        commenter_id: l.id,
+        video_id: v.id,
+        timestamp: 3.1,
+        parent_id: c1.id,
         body: "An old anime, but I forgot the name..."
     )
 
-    Comment.create!(
-        commenter_id: 3,
-        video_id: 1,
-        timestamp: 4,
-        parent_id: 1,
+    c3 = Comment.create!(
+        commenter_id: g.id,
+        video_id: v.id,
+        timestamp: 4.1,
+        parent_id: c1.id,
         body: "It's Chi's Sweet Home!"
     )
 
-    Comment.create!(
-        commenter_id: 2,
-        video_id: 1,
-        timestamp: 5,
-        parent_id: 3,
+    c4 = Comment.create!(
+        commenter_id: s.id,
+        video_id: v.id,
+        timestamp: 5.1,
+        parent_id: c3.id,
         body: "Thanks!"
     )
 
-    Comment.create!(
-        commenter_id: 4,
-        video_id: 1,
-        timestamp: 10,
+    c5 = Comment.create!(
+        commenter_id: k.id,
+        video_id: v.id,
+        timestamp: 9.9,
         parent_id: nil,
         body: "This cat programs better than me."
     )

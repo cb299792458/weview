@@ -19,25 +19,17 @@ function CommentBox(props) {
     comments.sort( (a,b) => a.timestamp - b.timestamp );
     let time = props.time;
     const roots = comments.filter( comment => comment.parentId === null);
-    const [focus, setFocus] = useState(null);
-    let commentLis = [];
+    const [focus, setFocus] = useState(0);
 
     window.addEventListener('click', (e) => {
-        if(e.target.nodeName !== 'LI'){
+        if(e.target.nodeName !== 'LI' && e.target.nodeName !== 'INPUT'){
             setFocus(null)
         }
     });
 
     const handleClick = (e) => {
         e.preventDefault();
-        setFocus(e.target);
-        commentLis.push(e.target)
-        // console.log(e.target);
-        commentLis.forEach( (commentLi) => {
-            commentLi.classList.remove('focus');
-            // console.log(commentLi);
-        });
-        // e.target.classList.toggle('focus')
+        setFocus(e.target.id);        
     }
 
     function formatComment(comment){
@@ -53,11 +45,13 @@ function CommentBox(props) {
                 })}
             </ul>
 
+        const commentClass = (parseInt(focus) === comment.id) ? "focus" : "comment";
+
         const commentLi =
             <li key={comment.id} 
                 id={comment.id} 
                 onClick={handleClick}
-                className={ focus && (focus.id === comment.id) ? "focus" : "comment" }> 
+                className={ commentClass }> 
                 
                 {`${comment.commenter} @ ${formatTime(comment.timestamp)}`}
                 <br></br>

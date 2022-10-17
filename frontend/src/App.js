@@ -7,6 +7,7 @@ import VideoPage from "./components/VideoPage";
 import VideoForm from "./components/VideoForm";
 import logo from './logo.png';
 import hamburger from './hamburger.png';
+import search from './search.png'
 import DevelopmentIndex from "./components/DevelopmentIndex";
 
 function App() {
@@ -14,11 +15,20 @@ function App() {
   return (
     <div className="everything">
       <div id="top">
-        <img src={hamburger} alt="" />
-        <a href="/">
-          <img src={logo} alt="WeView logo" height="50"></img>
-        </a>
-        <div><h1>Search Bar Goes Here</h1></div>
+        <div id="logobox">
+          <img src={hamburger} alt="" id={"hamburger"}/>
+          <a href="/">
+            <img src={logo} alt="WeView logo" id={"logo"}></img>
+          </a>
+        </div>
+        <div id="searchbox">
+          <input name="q"
+            type="search" 
+            placeholder="Search" 
+            id="search">
+          </input>
+          <img src={search} alt="" height="42"></img>
+        </div>
         <Navigation />
       </div>
       
