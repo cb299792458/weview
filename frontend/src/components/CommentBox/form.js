@@ -43,7 +43,7 @@ function Form(props) {
                 value={body}>
 
             </input>
-            <button>Comment</button>
+            <button>{!props.focus ? "Comment" : "Reply"}</button>
         
             <ul>
                 {errors && errors.map(error => <li key={error}>{error}</li>)}

@@ -9,7 +9,7 @@ ul ul {
     padding: 5px 0px 5px 15px;
 }
 
-ul li {
+ul li.comment {
     list-style-position: inside;
     margin: 1px;
     border: 1px solid black;
@@ -17,5 +17,6 @@ ul li {
 
 .focus{
     font-style: italic;
-    color: red;
+    font-weight: bold;
+    /* color: red; */
 }

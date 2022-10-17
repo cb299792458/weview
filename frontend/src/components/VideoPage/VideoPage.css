@@ -3,3 +3,7 @@
     justify-content: baseline;
     margin: 20px;
 }
+
+video {
+    max-width: 80%;
+}

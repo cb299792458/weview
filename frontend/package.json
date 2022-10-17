@@ -37,8 +37,7 @@
     ]
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6",
-    "video.js": "^7.20.3"
+    "redux-logger": "^3.0.6"
   },
   "proxy": "http://localhost:5000"
 }
