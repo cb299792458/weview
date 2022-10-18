@@ -70,19 +70,17 @@ function CommentBox(props) {
 
     if(comments){
         return(
-            <div>
-                <div id="chat">
-                    { time!==0 ? <h5>Timed Comments at {formatTime(time)} / {formatTime(props.duration)}</h5> : <h5>Timed Comments</h5>} 
-                    <br></br>
-                    <ul>
+            <div id="chat">
+                { time!==0 ? <h5>Timed Comments at {formatTime(time)} / {formatTime(props.duration)}</h5> : <h5>Timed Comments</h5>} 
+                <br></br>
+                <ul>
+
+                    {roots.map( (root) => {
+                        return formatComment(root);
+                    })}
+
+                </ul>
     
-                        {roots.map( (root) => {
-                            return formatComment(root);
-                        })}
-    
-                    </ul>
-    
-                </div>
                 <Form time={time} comments={comments} id={props.id} focus={focus}/>
                 {/* ERRORS SHOULD GO HERE */}
             </div>

@@ -1,8 +1,11 @@
 #chat {
     overflow: auto;
-    width: 600px;
+    width: 364px;
     height: 400px;
     margin: 20px;
+    align-self: flex-end;
+    border: 1px black solid;
+
 }
 
 ul ul {

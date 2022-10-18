@@ -1,9 +1,24 @@
 .theater{
     display: flex;
-    justify-content: baseline;
-    margin: 20px;
+    justify-content: space-between;
+    margin: 20px 5%;
+    border: 1px black solid;
+}
+
+#video {
+    width: 80%;
+    /* max-width: 100%; */
+    border: 1px black solid;
+    margin: 0px;
 }
 
 video {
-    max-width: 80%;
+    width: 100%;
+}
+
+
+#comments {
+    border: 1px solid black;
+    align-self: flex-start;
+    justify-self: flex-start;
 }
