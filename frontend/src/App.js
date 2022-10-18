@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import Navigation from "./components/Navigation";
@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 function App() {
   const history = useHistory();
-  let query;
+  const [query, setQuery] = useState("");
 
   return (
     <div className="everything">
@@ -25,18 +25,22 @@ function App() {
             <img src={logo} alt="WeView logo" id={"logo"}></img>
           </a>
         </div>
-        <form onSubmit={()=>{history.push(`/search/query/${query}`)}}>
+        <form onSubmit={()=>{history.push(`/search/`)}}>
           <div id="search-box">
 
             <input name="q"
-              type="search" 
+              type="text" 
               placeholder="Search" 
               id="search"
-              value={query}>
+              value={query}
+              onChange={(e)=>setQuery(e.target.value)}>
             </input>
 
-            <input type="image" className="search" src={search} alt="" height="42">
-            </input>
+
+            <button type="submit">
+              <img src={search} alt="" id="search-button"></img>
+            </button>
+
           </div>
 
         </form>
@@ -60,7 +64,7 @@ function App() {
           <h1>Home</h1>
           <DevelopmentIndex />
         </Route>
-        <Route path="/search/query/:query">
+        <Route path="/search/?q=:query">
           <SearchResults />
         </Route>
         <Route>

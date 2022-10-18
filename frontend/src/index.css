@@ -33,19 +33,31 @@
 }
 
 
-#searchbox {
+#search-box {
     width: 600px;
 }
 #search {
-    height: 41px;
+    height: 34px;
     margin-left: 34px;
     font-size: 16px;
-    flex: 1;
+    flex-grow: 1;
     max-width: 538px;
 }
 
 .everything {
     font-family: 'Roboto', 'Arial', sans-serif;
+}
 
+button {
+    border: 0;
+    background: transparent;
+    height: 40px;
+    padding: 0%;
+}
+
+#search-button {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
 }
 
