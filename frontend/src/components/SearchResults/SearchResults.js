@@ -19,9 +19,18 @@ function SearchResults() {
 
     let videos;
     if(type === "q"){
-        videos = allVideos.filter( (video) => {
-            return video.title.includes(query);
+        const words = query.split("+");
+        
+        videos = allVideos;
+        words.forEach( (word) => {
+            videos = videos.filter( (video) => {
+                return video.title.includes(word);
+            });
         });
+
+
+
+
     } else if(type === "u"){
         videos = allVideos.filter( (video) => {
             return video.uploader === query;
@@ -35,8 +44,8 @@ function SearchResults() {
             <ul className="search-results">
                 {videos.map( (video) => {
                     return(
-                        <Link to={`/videos/${video.id}`}>
-                            <VideoTile key={video.id} video={video} />
+                        <Link key={video.id} to={`/videos/${video.id}`}>
+                            <VideoTile video={video} />
                         </Link>
                     )
                 })}
