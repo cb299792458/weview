@@ -6,15 +6,15 @@
     margin-right: 20px;
     margin-left: 5%;
     border: 1px red solid;
-    flex: 3 1 auto;
+    min-width: 640px;
+    flex: 1 0 auto;
 }
 
 #chat-col {
     margin-top: 20px;
     margin-right: 5%;
-    border: 1px solid blue;
-    
-    flex: 1 1 auto;
+    /* border: 1px solid blue; */
+    width: 400px;
 }
 
 

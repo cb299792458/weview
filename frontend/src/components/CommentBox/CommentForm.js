@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { writeComment } from "../../store/comment";
 // import csrfFetch from "../../store/csrf";
 
-function Form(props) {
+function CommentForm(props) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [errors, setErrors] = useState([]);
@@ -52,4 +52,4 @@ function Form(props) {
     )
 }
 
-export default Form;
+export default CommentForm;
