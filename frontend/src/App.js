@@ -9,8 +9,12 @@ import logo from './logo.png';
 import hamburger from './hamburger.png';
 import search from './search.png'
 import DevelopmentIndex from "./components/DevelopmentIndex";
+import SearchResults from "./components/SearchResults";
+import { useHistory } from "react-router-dom";
 
 function App() {
+  const history = useHistory();
+  let query;
 
   return (
     <div className="everything">
@@ -21,14 +25,21 @@ function App() {
             <img src={logo} alt="WeView logo" id={"logo"}></img>
           </a>
         </div>
-        <div id="searchbox">
-          <input name="q"
-            type="search" 
-            placeholder="Search" 
-            id="search">
-          </input>
-          <img src={search} alt="" height="42"></img>
-        </div>
+        <form onSubmit={()=>{history.push(`/search/query/${query}`)}}>
+          <div id="search-box">
+
+            <input name="q"
+              type="search" 
+              placeholder="Search" 
+              id="search"
+              value={query}>
+            </input>
+
+            <input type="image" className="search" src={search} alt="" height="42">
+            </input>
+          </div>
+
+        </form>
         <Navigation />
       </div>
       
@@ -48,6 +59,9 @@ function App() {
         <Route exact path='/'>
           <h1>Home</h1>
           <DevelopmentIndex />
+        </Route>
+        <Route path="/search/query/:query">
+          <SearchResults />
         </Route>
         <Route>
           <h1>Page Not Found</h1>

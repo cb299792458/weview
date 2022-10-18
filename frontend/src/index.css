@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-#logobox, #searchbox {
+#logobox, #search-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +41,6 @@
     margin-left: 34px;
     font-size: 16px;
     flex: 1;
-    /* width: 90%; */
     max-width: 538px;
 }
 
