@@ -37,7 +37,7 @@ function App() {
             </input>
 
 
-            <button type="submit">
+            <button type="submit" id="magnifying-glass">
               <img src={search} alt="" id="search-button"></img>
             </button>
 
@@ -64,7 +64,7 @@ function App() {
           <h1>Home</h1>
           <DevelopmentIndex />
         </Route>
-        <Route path="/search/?q=:query">
+        <Route path="/search/">
           <SearchResults />
         </Route>
         <Route>

@@ -30,7 +30,9 @@ function DevelopmentIndex(){
             <ul>
                 {users.map( (user) => {
                     return <li key={user.id}>
-                        {`User #${user.id} has username: ${user.username}`}
+                        <Link to={`/search/?u=${user.username}`}>
+                            {`User #${user.id} has username: ${user.username}`}
+                        </Link>
                     </li>
                 })}
             </ul>

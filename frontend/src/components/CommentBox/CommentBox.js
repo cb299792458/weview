@@ -60,7 +60,6 @@ function CommentBox(props) {
             </li>
 
         if(time >= comment.timestamp){
-            // commentLis.push(commentLi);
             return(
                 commentLi
             )
