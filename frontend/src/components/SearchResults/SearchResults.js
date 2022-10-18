@@ -21,12 +21,11 @@ function SearchResults() {
     if(type === "q"){
         videos = allVideos.filter( (video) => {
             return video.title.includes(query);
-        })
+        });
     } else if(type === "u"){
         videos = allVideos.filter( (video) => {
-            // console.log(video.uploader);
             return video.uploader === query;
-        })
+        });
     } else {
         videos = [];
     }

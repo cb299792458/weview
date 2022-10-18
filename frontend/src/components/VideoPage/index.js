@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {getVideo, fetchVideo} from '../../store/video'
 import CommentBox from "../CommentBox";
 import './VideoPage.css';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function VideoPage() {
     const dispatch = useDispatch();
@@ -41,7 +42,9 @@ function VideoPage() {
                     {vid || "no vid"}
                     
                     <h2>{video.title}</h2>
-                    <h4>{`Uploaded by User: ${video.uploader}`}</h4>
+                    <Link to={`/search/?u=${video.uploader}`}>
+                        <h4>{`Uploaded by ${video.uploader}`}</h4>
+                    </Link>
                     <p>{video.description}</p>
                     
                 </div>
