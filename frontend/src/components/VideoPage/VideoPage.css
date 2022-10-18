@@ -1,24 +1,20 @@
-.theater{
+#video-col{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin: 20px 5%;
-    border: 1px black solid;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 5%;
+    border: 1px red solid;
+    flex: 3 1 auto;
 }
 
-#video {
-    width: 80%;
-    /* max-width: 100%; */
-    border: 1px black solid;
-    margin: 0px;
-}
-
-video {
-    width: 100%;
+#chat-col {
+    margin-top: 20px;
+    margin-right: 5%;
+    border: 1px solid blue;
+    
+    flex: 1 1 auto;
 }
 
 
-#comments {
-    border: 1px solid black;
-    align-self: flex-start;
-    justify-self: flex-start;
-}

@@ -1,3 +1,4 @@
+require 'open-uri'
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
@@ -41,6 +42,7 @@ ApplicationRecord.transaction do
     )
     
     chi = File.open('app/chi.mp4')
+    chi = URI.open("https://weview-seeds.s3.amazonaws.com/chi.mp4")
     v.upload.attach(io: chi, filename: 'chi.mp4')
 
     c1 = Comment.create!(

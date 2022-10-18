@@ -1,0 +1,13 @@
+#top {
+    padding: 0;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}

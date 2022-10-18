@@ -11,6 +11,7 @@ import search from './search.png'
 import DevelopmentIndex from "./components/DevelopmentIndex";
 import SearchResults from "./components/SearchResults";
 import { useHistory } from "react-router-dom";
+import './App.css'
 
 function App() {
   const history = useHistory();
@@ -46,31 +47,32 @@ function App() {
         </form>
         <Navigation />
       </div>
-      
-      <Switch>
-        <Route path="/login">
-          <LoginFormPage />
-        </Route>
-        <Route path="/signup">
-          <SignupFormPage />
-        </Route>
-        <Route path="/videos/new">
-          <VideoForm />
-        </Route>
-        <Route path="/videos/:videoId">
-          <VideoPage />
-        </Route>
-        <Route exact path='/'>
-          <h1>Home</h1>
-          <DevelopmentIndex />
-        </Route>
-        <Route path="/search/">
-          <SearchResults />
-        </Route>
-        <Route>
-          <h1>Page Not Found</h1>
-        </Route>
-      </Switch>
+      <div id="content">
+        <Switch>
+          <Route path="/login">
+            <LoginFormPage />
+          </Route>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route path="/videos/new">
+            <VideoForm />
+          </Route>
+          <Route path="/videos/:videoId">
+            <VideoPage />
+          </Route>
+          <Route exact path='/'>
+            <h1>Home</h1>
+            <DevelopmentIndex />
+          </Route>
+          <Route path="/search/">
+            <SearchResults />
+          </Route>
+          <Route>
+            <h1>Page Not Found</h1>
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }

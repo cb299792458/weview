@@ -36,8 +36,8 @@ function VideoPage() {
     if(video){
         const comments = video.comments;
         return(
-            <div className="theater">
-                <div id="video">
+            <>
+                <div id="video-col">
                     {vid || "no vid"}
                     
                     <h2>{video.title}</h2>
@@ -48,7 +48,7 @@ function VideoPage() {
                     
                 </div>
 
-                <div id="comments">
+                <div id="chat-col">
                     {comments ? <CommentBox
                         time={time.current}
                         comments={comments}
@@ -56,8 +56,8 @@ function VideoPage() {
                         id={videoId}
                     /> : <p>loading comments</p>}
                 </div>
+            </>
 
-            </div>
         )
     } else {
         return(
