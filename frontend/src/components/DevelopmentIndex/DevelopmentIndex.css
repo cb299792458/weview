@@ -3,3 +3,12 @@
 /* ul li {
     border: none;
 } */
+#index{
+    border: 1px solid salmon;
+    display: flex;
+    flex-direction: column;
+}
+
+#index h2,ul,li {
+    margin: 10px;
+}

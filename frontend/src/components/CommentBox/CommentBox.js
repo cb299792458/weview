@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Form from "./CommentForm";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import CommentForm from "./CommentForm";
 
 function formatTime(time) {
     const mins = Math.floor(time / 60);
@@ -13,7 +14,6 @@ function formatTime(time) {
 }
 
 
-
 function CommentBox(props) {
     let comments = props.comments;
     comments.sort( (a,b) => a.timestamp - b.timestamp );
@@ -23,16 +23,17 @@ function CommentBox(props) {
     const [showComments, setShowComments] = useState(true);
     const [filterComments, setFilterComments] = useState(false);
 
-    window.addEventListener('click', (e) => {
-        if(e.target.nodeName !== 'LI' && e.target.nodeName !== 'INPUT'){
-            setFocus(null)
-        }
-    });
-
     const handleClick = (e) => {
-        e.preventDefault();
-        setFocus(e.target.id);        
+        if(e){
+            e.preventDefault();
+            if(focus !== parseInt(e.target.id)){
+                setFocus(parseInt(e.target.id));
+            } else {
+                setFocus(null);
+            }
+        }
     }
+    handleClick();
 
     function formatComment(comment){
 
@@ -52,12 +53,19 @@ function CommentBox(props) {
         const commentLi =
             <li key={comment.id} 
                 id={comment.id} 
-                onClick={handleClick}
                 className={ commentClass }> 
-                
-                {`${comment.commenter} @ ${formatTime(comment.timestamp)}`}
-                <br></br>
+                <div id="comment-top">
+                    <Link to={`/search/?u=${comment.commenter}`}>{comment.commenter}</Link>
+                    <pre>     </pre>
+                    <p>{formatTime(comment.timestamp)}</p>
+                </div>
+
                 {`${comment.body}`}
+                <br></br>
+
+                <span id="q"> q? </span><span id="w"> =w= </span><span id="e"> e! </span><span id="x"> [x] </span>
+                <span id={comment.id} onClick={handleClick}>{focus === comment.id ? 'Replying...' : 'Reply'}</span>
+
                 {children && childrenList}
             </li>
 
@@ -86,7 +94,7 @@ function CommentBox(props) {
 
                     </ul>
         
-                    <Form time={time} comments={comments} id={props.id} focus={focus}/>
+                    <CommentForm time={time} comments={comments} id={props.id} focus={focus}/>
                 </div>}
                 <div id="chat-hider" onClick={()=>{setShowComments(!showComments)}}>
                     <h4>{showComments ? `Hide Comments` : `Show Comments`}</h4>

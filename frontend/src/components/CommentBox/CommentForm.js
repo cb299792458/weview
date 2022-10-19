@@ -8,7 +8,7 @@ function CommentForm(props) {
     const sessionUser = useSelector(state => state.session.user);
     const [errors, setErrors] = useState([]);
 
-    const parentId = props.focus ? props.focus.id : null;
+    const parentId = props.focus ? parseInt(props.focus) : null;
     
 
     const handleSubmit = async (e) => {
@@ -20,12 +20,13 @@ function CommentForm(props) {
                 timestamp: props.time, 
                 videoId: props.id,
                 commenterId: sessionUser.id,
-                parentId: parentId,
-                commenter: sessionUser.username
+                // commenter: sessionUser.username, COMMENTER BUG
+                parentId: parentId
             }
                   
             return dispatch(writeComment(comment))
                 .then(
+                    comment.commenter = sessionUser.username,
                     props.comments.push(comment),
                     setBody("")
                 )
@@ -43,7 +44,7 @@ function CommentForm(props) {
                 value={body}>
 
             </input>
-            <button>{!props.focus ? "Comment" : "Reply"}</button>
+            <button>{ !props.focus ? "Comment" : "Reply"}</button>
         
             <ul>
                 {errors && errors.map(error => <li key={error}>{error}</li>)}

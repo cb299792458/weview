@@ -16,7 +16,9 @@ function DevelopmentIndex(){
 
 
     return(
-        <>
+        <div id="index">
+            <h3>Home</h3>
+
             <h2>All Videos</h2>
             <ul>
                 {videos.map( (video) => {
@@ -36,7 +38,7 @@ function DevelopmentIndex(){
                     </li>
                 })}
             </ul>
-        </>
+        </div>
     )
 }
 
