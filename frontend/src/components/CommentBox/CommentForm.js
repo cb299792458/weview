@@ -38,18 +38,21 @@ function CommentForm(props) {
     const [body, setBody] = useState("");
 
     return(
-        <form onSubmit={handleSubmit}>
-            <input
-                onChange={(e)=>{setBody(e.target.value)}}
-                value={body}>
+        <>
+            <form onSubmit={handleSubmit} className="chat-form">
+                <input
+                    id="chat-input"
+                    onChange={(e)=>{setBody(e.target.value)}}
+                    value={body}>
 
-            </input>
-            <button>{ !props.focus ? "Comment" : "Reply"}</button>
-        
+                </input>
+                <button id="chat-button">{ !props.focus ? "Comment" : "Reply"}</button>
+            
+            </form>
             <ul>
                 {errors && errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-        </form>
+        </>
     )
 }
 

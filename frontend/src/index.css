@@ -23,6 +23,11 @@ h1{
     font-size: 30px;
 }
 
+a:visited, a:link {
+    color: black;
+    text-decoration-line: none;
+}
+
 #logobox, #search-box {
     display: flex;
     justify-content: center;

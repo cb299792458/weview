@@ -38,10 +38,19 @@ ApplicationRecord.transaction do
     v = Video.create!(
         uploader_id: 1,
         title: 'cute cat',
-        description: 'kitten programming a fullstack project'
+        description: "
+            Chi the kitten is becoming a fullstack programmer.
+            She's learning everything from scratch in just 16 weeks.
+            She's having tons of fun seeing her ideas come to life and squashing lots of bugs.
+            She has a really good idea for an app, and hopes to find a great job.
+            Chi gets easily distracted, particularly attracted to small moving objects. 
+            Chi is generally sweet, but will sometimes come off as being rude. 
+            Chi is also very clumsy at times, and makes many mistakes most of which; 
+            she doesn't seem to be aware of.
+        "
     )
     
-    chi = File.open('app/chi.mp4')
+    # chi = File.open('app/chi.mp4')
     chi = URI.open("https://weview-seeds.s3.amazonaws.com/chi.mp4")
     v.upload.attach(io: chi, filename: 'chi.mp4')
 

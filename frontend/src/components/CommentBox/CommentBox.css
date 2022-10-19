@@ -5,10 +5,13 @@
     display: flex;
     justify-content: space-between;
 }
+#chat-filter h3{
+    padding: 10px;
+    cursor: pointer;
+}
 
-h3 {
-    margin: 10px 20px 0px 20px;
-    font-size: 20px;
+#uploader {
+    margin: 10px 0px 0px 0px;
 }
 
 #chat {
@@ -28,23 +31,19 @@ h3 {
     border: 1px solid green;
 } */
 
-h4{
-    font-size: 18px;
-}
-
 #chat-hider h4{
     text-align: center;
     cursor: pointer;
+    padding: 10px;
 }
 
-#chat form{
+.chat-form{
     justify-self: flex-end;
     display: flex;
-    border: 1px solid magenta;
-    /* position: absolute;  FIX THIS*/
+    /* border: 1px solid magenta; */
 }
 
-#chat input{
+#chat-input{
     width: 100%;
 }
 
@@ -55,14 +54,13 @@ ul ul {
 .comment, .focus {
     list-style-position: inside;
     margin: 1px;
-    border: 1px solid black;
-    inherits: false;
+    /* border: 1px solid black; */
 }
 
-.focus{
-    font-style: italic;
-    font-weight: bold;
-}
 
+#chat-button {
+    padding: 0;
+    cursor: pointer;
+}
 
 

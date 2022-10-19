@@ -13,10 +13,12 @@ class Api::VideosController < ApplicationController
 
     def create
         video = Video.new(video_params)
+        p "Here"
+        p video
         if video.save
             render json: {message: "You did it!", id: video.id}
         else
-            render json: video.errors.full_messages, status: 422
+            render json: {errors: video.errors.full_messages, status: 422}
         end
     end
 

@@ -16,6 +16,8 @@ function formatTime(time) {
 
 function CommentBox(props) {
     let comments = props.comments;
+
+
     comments.sort( (a,b) => a.timestamp - b.timestamp );
     let time = props.time;
     const roots = comments.filter( comment => comment.parentId === null);
@@ -63,8 +65,8 @@ function CommentBox(props) {
                 {`${comment.body}`}
                 <br></br>
 
-                <span id="q"> q? </span><span id="w"> =w= </span><span id="e"> e! </span><span id="x"> [x] </span>
-                <span id={comment.id} onClick={handleClick}>{focus === comment.id ? 'Replying...' : 'Reply'}</span>
+                {/* <span id="q"> q? </span><span id="w"> =w= </span><span id="e"> e! </span><span id="x"> [x] </span> */}
+                <span id={comment.id} onClick={handleClick}>{ focus === comment.id ? '*Replying...*' : 'Reply' }</span>
 
                 {children && childrenList}
             </li>
@@ -83,10 +85,11 @@ function CommentBox(props) {
             <>
                 {showComments && <div id="chat-filter" onClick={()=>{setFilterComments(!filterComments)}}>
                     <h3>{filterComments ? 'All Comments' : 'Timed Comments'}</h3>
-                    { time!==0 ? <h3>{formatTime(time)} / {formatTime(props.duration)}</h3> : ""} 
+                    { time!==0 ? <h3>{formatTime(time)} / {formatTime(props.duration)}</h3> : <h3>Click to Toggle</h3>} 
                 </div>}
                 {showComments && <div id="chat">
-                    <ul>
+                    {/* <hr></hr> */}
+                    <ul key={comments}>
 
                         {roots.map( (root) => {
                             return formatComment(root);
@@ -94,8 +97,8 @@ function CommentBox(props) {
 
                     </ul>
         
-                    <CommentForm time={time} comments={comments} id={props.id} focus={focus}/>
                 </div>}
+                {showComments && <CommentForm time={time} comments={comments} id={props.id} focus={focus}/>}
                 <div id="chat-hider" onClick={()=>{setShowComments(!showComments)}}>
                     <h4>{showComments ? `Hide Comments` : `Show Comments`}</h4>
                 </div>

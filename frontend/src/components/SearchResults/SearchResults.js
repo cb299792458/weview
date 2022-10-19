@@ -30,7 +30,6 @@ function SearchResults() {
 
 
 
-
     } else if(type === "u"){
         videos = allVideos.filter( (video) => {
             return video.uploader === query;
