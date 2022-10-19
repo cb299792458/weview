@@ -5,7 +5,7 @@
 #  id           :bigint           not null, primary key
 #  commenter_id :bigint
 #  video_id     :bigint
-#  timestamp    :integer          not null
+#  timestamp    :float            not null
 #  parent_id    :bigint
 #  body         :string           not null
 #  created_at   :datetime         not null

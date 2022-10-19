@@ -1,4 +1,4 @@
-json.extract! @video, :id, :uploader_id, :title, :description, :created_at
+json.extract! @video, :id, :uploader_id, :title, :description, :created_at, :likes
 json.videoUrl @video.upload.url
 json.uploader @video.uploader.username
 json.timeAgo time_ago_in_words(@video.created_at)

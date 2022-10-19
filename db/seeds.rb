@@ -45,8 +45,8 @@ ApplicationRecord.transaction do
             She has a really good idea for an app, and hopes to find a great job.
             Chi gets easily distracted, particularly attracted to small moving objects. 
             Chi is generally sweet, but will sometimes come off as being rude. 
-            Chi is also very clumsy at times, and makes many mistakes most of which; 
-            she doesn't seem to be aware of.
+            Chi is also very clumsy at times, and makes many mistakes, most of which 
+            she doesn't seem to be aware of, but she is a great programmer.
         "
     )
     
@@ -94,6 +94,18 @@ ApplicationRecord.transaction do
         body: "This cat programs better than me."
     )
 
+    Like.create!(
+        user_id: s.id,
+        video_id: v.id
+    )
+    Like.create!(
+        user_id: k.id,
+        video_id: v.id
+    )
+    Like.create!(
+        user_id: g.id,
+        video_id: v.id
+    )
   
     puts "Done!"
   end

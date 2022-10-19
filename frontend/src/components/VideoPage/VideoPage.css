@@ -34,6 +34,7 @@
 
 #uploader-info {
     /* border: 1px solid seagreen; */
+    height: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -41,6 +42,8 @@
 }
 
 #uploader {
+    padding: 0%;
+    margin: 0;
     font-weight: 600;
 }
 

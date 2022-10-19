@@ -6,29 +6,37 @@ import CommentBox from "../CommentBox";
 import { Link } from "react-router-dom";
 import pp from "../../pp.png";
 import like from "../../like.png";
+import { dislike, fetchLikes, getLikes, makeLike } from "../../store/like";
 
 function VideoPage() {
     const dispatch = useDispatch();
-    
+    const sessionUser = useSelector(state => state.session.user);
+
     const {videoId} = useParams();
     const video = useSelector(getVideo(videoId));
-    let subs = '1.23M';
+    const likes = useSelector(getLikes());
+    const likers = likes.map( (like) => {return like.userId} );
 
+    let subs = '1.23M';
+    let comments = [];
+    const [likeCount, setLikeCount] = useState(likes.length);
+    
 
     useEffect( () => {
         dispatch(fetchVideo(videoId));
-        // subs = Math.floor(Math.random()*10000);
-
+        dispatch(fetchLikes(videoId));
     }, []);
+
+
+    
     
     const [timeDisplay, setTimeDisplay] = useState(true);
     const time = useRef(0);
     const duration = useRef(0);
-
+    
     const updateTime = (e) => {
         time.current = document.getElementById("vid").currentTime;
         duration.current = document.getElementById("vid").duration;
-        console.log(time.current)
         setTimeDisplay(!timeDisplay); // This does nothing except rerender the timer.
     }
     
@@ -39,8 +47,27 @@ function VideoPage() {
     onTimeUpdate={updateTime}
     />
     
-    if(video){
-        const comments = video.comments;
+    if(video && video.likes){
+        
+        comments = video.comments;
+
+        const toggleLike = () => {
+            if(likes){
+                if(likers.includes(sessionUser.id)){
+                    console.log("DISLIKING");
+                    const like = likes.find( (like) => like.userId === sessionUser.id )
+                    setLikeCount(likeCount-1);
+
+                    return dispatch(dislike(like.id))
+                } else {
+                    // likes.push(sessionUser.id);
+                    console.log("LIKING");
+                    setLikeCount(likeCount+1);
+                    return dispatch(makeLike(sessionUser.id, videoId))
+                }
+            }
+        }
+
         return(
             <>
                 <div id="video-col">
@@ -55,16 +82,14 @@ function VideoPage() {
                             <img src={pp} alt="" height="50px" width="50px" />
                             <div id="uploader-info">
                                 <h3 id="uploader">{`${video.uploader}`}</h3>
-                                <br></br>
                                 <h6>{subs} subscribers</h6>
-                                <br></br>
                             </div>
                         </div>
                     </Link>
                     <div id="description">
                         <span id="description-header">
-                            <img src={like} alt="" id="like"/>
-                            <p>0 likes</p>
+                            <img src={like} alt="" id="like" onClick={toggleLike}/>
+                            <p>{`${likes ? likes.length : 0} likes`}</p>
                             <p>{video.timeAgo} ago</p>
                         </span>
                         <br></br>
