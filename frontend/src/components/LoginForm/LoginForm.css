@@ -1,0 +1,48 @@
+#sign-in {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid blue; */
+    height: 405px;
+}
+
+form p {
+    margin-top: 15px;
+    padding: 5px;
+}
+
+form h4 {
+    color: #2064cc;
+    align-self: start;
+    margin: 10px;
+}
+
+#sign-in #buttons {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid salmon; */
+    width: 100%;
+    align-items: center;
+    margin-top: 44px;
+}
+
+#button-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#buttons button {
+    background-color: #2064cc;
+    color: white;
+    width: 80px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+}
+
+#sign-in input {
+    width: 364px;
+    height: 24px;
+    margin: 2px;
+    padding: 12px 14px;
+}

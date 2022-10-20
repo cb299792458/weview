@@ -17,7 +17,7 @@ function VideoPage() {
     const video = useSelector(getVideo(videoId));
     const likes = useSelector(getLikes());
 
-    let subs = '1.23M';
+    const [subs, setSubs] = useState(0);
     let comments = [];
     const [likeCount, setLikeCount] = useState(likes.length);
     
@@ -25,6 +25,7 @@ function VideoPage() {
     useEffect( () => {
         dispatch(fetchVideo(videoId));
         dispatch(fetchLikes(videoId));
+        setSubs(Math.floor(Math.random()*10000));
     }, []);
 
 
@@ -94,7 +95,7 @@ function VideoPage() {
                     </Link>
                     <div id="description">
                         <span id="description-header">
-                            <img src={likes && likers.includes(sessionUser.id) ? liked : like} alt="" id="like" onClick={toggleLike}/>
+                            <img src={sessionUser && likes && likers.includes(sessionUser.id) ? liked : like} alt="" id="like" onClick={toggleLike}/>
                             <p>{`${likes ? likes.length : 0} likes`}</p>
                             <p>{video.timeAgo} ago</p>
                         </span>

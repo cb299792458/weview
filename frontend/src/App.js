@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
+// import LoginForm from "./components/LoginForm";
+// import SignupForm from "./components/SignupForm";
 import VideoPage from "./components/VideoPage";
 import VideoForm from "./components/VideoForm";
 import DevelopmentIndex from "./components/DevelopmentIndex";
@@ -17,12 +17,12 @@ function App() {
       <TopBar />
       <div id="content">
         <Switch>
-          <Route path="/login">
+          {/* <Route path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/signup">
-            <SignupFormPage />
-          </Route>
+            <SignupForm />
+          </Route> */}
           <Route path="/videos/new">
             <VideoForm />
           </Route>

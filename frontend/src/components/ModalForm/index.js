@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import LoginForm from './LoginForm';
+import ModalForm from './ModalForm';
 import signin from '../../signin.png'
-import './LoginForm.css'
+import './ModalForm.css'
 
 
-function LoginFormModal() {
+function ModalIndex() {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -13,12 +13,12 @@ function LoginFormModal() {
       <img src={signin} alt='' onClick={() => setShowModal(true)} />
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
+          <ModalForm />
         </Modal>
       )}
     </div>
   );
 }
 
-export default LoginFormModal;
+export default ModalIndex;
 

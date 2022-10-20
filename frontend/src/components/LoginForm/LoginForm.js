@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import './LoginForm.css';
 
-function LoginFormPage() {
+function LoginForm(props) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
@@ -20,13 +19,25 @@ function LoginFormPage() {
         .catch(async (data) => {
             setErrors(data.errors);
         });
-}
+  }
+
+  const demoUser = ()=>{
+    const username = "Guest-" + Math.floor(Math.random()*1000000000);
+    const email = username + "@email.com";
+    const password = "password";
+    return dispatch(sessionActions.signupUser({ email, username, password }))
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="sign-in">
+      
+      <h1>Sign in</h1>
+      <p>to continue to WeView</p>
+
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
+
       <input
         type="text"
         value={credential}
@@ -35,6 +46,7 @@ function LoginFormPage() {
         required
       />
       <h4 onClick={()=>{alert("That's rough buddy.")}}>Forgot email?</h4>
+
       <input
         type="password"
         value={password}
@@ -46,8 +58,8 @@ function LoginFormPage() {
 
       <div id="buttons">
         <div id="button-links">
-          <h4>Create account</h4>
-          <h4>Demo user</h4>
+          <h4 onClick={()=>{props.toggle(true)}}>Create account</h4>
+          <h4 onClick={demoUser}>Demo user</h4>
         </div>
 
         <button type="submit">Log In</button>
@@ -56,4 +68,4 @@ function LoginFormPage() {
   );
 }
 
-export default LoginFormPage;
+export default LoginForm;

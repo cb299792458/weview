@@ -17,7 +17,7 @@
 #session-box img{
     height: 28px;
     width: 80px;
-    margin: 50px;
+    margin: 40px 0px 20px 0px;
 }
 
 #session-box form{
@@ -25,28 +25,5 @@
     flex-direction: column;
 }
 
-#session-box input {
-    width: 364px;
-    height: 52px;
-    margin: 2px;
-    padding: 12px 14px;
-}
 
-form h4 {
-    color: #2064cc;
-    padding: 5px;
-}
 
-#buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-#buttons button {
-    background-color: #2064cc;
-    color: white;
-    width: 80px;
-    height: 36px;
-    border: none;
-    border-radius: 10px;
-}
