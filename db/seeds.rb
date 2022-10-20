@@ -5,12 +5,14 @@ ApplicationRecord.transaction do
     Video.destroy_all
     User.destroy_all
     Comment.destroy_all
+    Like.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('videos')
     ApplicationRecord.connection.reset_pk_sequence!('comments')
+    ApplicationRecord.connection.reset_pk_sequence!('likes')
   
     puts "Creating users..."
     # Create some users with an easy to remember username, email, and password:

@@ -117,7 +117,7 @@ function VideoPage() {
         )
     } else {
         return(
-            <h1>Video Not Found</h1>
+            <h1>Loading video...</h1>
         )
     }
 }

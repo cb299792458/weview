@@ -23,15 +23,18 @@ class User < ApplicationRecord
 
   has_many :videos,
     foreign_key: :uploader_id,
-    class_name: :Video
+    class_name: :Video, 
+    dependent: :destroy
 
   has_many :comments,
     foreign_key: :commenter_id,
-    class_name: :Comment
+    class_name: :Comment, 
+    dependent: :destroy
 
   has_many :likes,
     foreign_key: :user_id,
-    class_name: :Like
+    class_name: :Like, 
+    dependent: :destroy
 
   def self.find_by_credentials(credential,password)
 

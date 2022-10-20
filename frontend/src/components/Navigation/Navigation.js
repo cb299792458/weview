@@ -22,22 +22,6 @@ const Navigation = () => {
         return (<Redirect to="/" />);
     }
 
-    // const [showModal, setShowModal] = useState(false);
-
-    // const editUser = () => {
-    //     console.log("editing");
-    //     setShowModal(true);
-    //     return (
-    //         <div id="edit-modal">
-    //           {showModal && (
-    //             <Modal onClose={() => setShowModal(false)}>
-    //               <ModalIndex />
-    //             </Modal>
-    //           )}
-    //         </div>
-    //       );
-    // }
-
     if (sessionUser){
         return (
             <div id="control-panel">
