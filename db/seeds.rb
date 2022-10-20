@@ -40,16 +40,7 @@ ApplicationRecord.transaction do
     v = Video.create!(
         uploader_id: 1,
         title: 'cute cat',
-        description: "
-            Chi the kitten is becoming a fullstack programmer.
-            She's learning everything from scratch in just 16 weeks.
-            She's having tons of fun seeing her ideas come to life and squashing lots of bugs.
-            She has a really good idea for an app, and hopes to find a great job.
-            Chi gets easily distracted, particularly attracted to small moving objects. 
-            Chi is generally sweet, but will sometimes come off as being rude. 
-            Chi is also very clumsy at times, and makes many mistakes, most of which 
-            she doesn't seem to be aware of, but she is a great programmer.
-        "
+        description: "Chi the kitten is becoming a fullstack programmer. She's learning everything from scratch in just 16 weeks. She has a really good idea for an app, and hopes to find a great job. Chi gets easily distracted, particularly attracted to small moving objects. Chi is generally sweet, but will sometimes come off as being rude. Chi is also very clumsy at times, and makes many mistakes, most of which she doesn't seem to be aware of, but she is a great programmer."
     )
     
     # chi = File.open('app/chi.mp4')

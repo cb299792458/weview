@@ -9,14 +9,13 @@
 }
 
 .modal {
-    
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
 }
 
 #session-box {
     width: 450px;
-    height: 500px;
+    height: 550px;
     background: white;
     border: 1px solid gray;
     border-radius: 10px;

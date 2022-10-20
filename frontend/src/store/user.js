@@ -3,7 +3,7 @@ import { removeUser } from "./session";
 
 
 const GET_USERS = '/api/users';
-const RECEIVE_USER = "RECEIVE_USER";
+const RECEIVE_USER = 'RECEIVE_USER';
 const REMOVE_USER = 'REMOVE_USER';
 
 export const getUsers = ({users}) => {
@@ -34,7 +34,7 @@ export const updateUser = (user) => async(dispatch) => {
         body: JSON.stringify(user)
     });
     let newUser = await res.json();
-    dispatch({type: RECEIVE_USER, user: newUser})
+    dispatch({type: RECEIVE_USER, user: newUser});
     return res;
 }
 

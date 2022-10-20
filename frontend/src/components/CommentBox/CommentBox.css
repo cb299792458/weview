@@ -20,11 +20,14 @@
     overflow: auto;
     width: 100%;
     height: 50%;
-    /* border: 1px rebeccapurple solid; */
+    /* background-color: white; */
+    border: 1px gray solid;
 }
 
 #chat ul{
     flex-grow: 1;
+    height: 80%;
+    /* min-height: 300px; */
 }
 
 /* #chat-hider {

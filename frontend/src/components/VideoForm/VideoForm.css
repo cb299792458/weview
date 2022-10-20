@@ -1,0 +1,50 @@
+#video-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#video-form h2, form{
+    margin: 40px;
+}
+
+#upload-form label, input, button {
+    margin: 20px;
+}
+
+#edit-list {
+    max-width: 80%;
+    /* border: 1px solid tomato; */
+}
+
+#video-edit-item {
+    /* border: 1px solid lightgray; */
+    height: 300px;
+    display: flex;
+    margin: 25px;
+    /* width: 100%; */
+}
+#video-edit-item video {
+    max-width: 400px;
+}
+#video-edit-item > div {
+    /* border: 1px solid greenyellow; */
+    flex-grow: 1;
+}
+
+#top-right {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+}
+
+#description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+}
+
+button {
+    cursor: pointer;
+}

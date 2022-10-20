@@ -4,6 +4,10 @@
     font-size: 14px;
 }
 
+#content {
+    background-color: whitesmoke ;
+}
+
 h6 {
     font-size: 12px;
 }
