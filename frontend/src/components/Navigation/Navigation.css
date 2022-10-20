@@ -7,3 +7,9 @@
     border: 1px solid lightskyblue;
     border-radius: 20px;
 }
+
+#control-panel img{
+    height: 30px;
+    margin: 5px;
+    cursor: pointer;
+}
