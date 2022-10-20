@@ -82,7 +82,7 @@ function CommentBox(props) {
 
     if(comments){
         return(
-            <>
+            <div id="comments">
                 {showComments && <div id="chat-filter" onClick={()=>{setFilterComments(!filterComments)}}>
                     <h3>{filterComments ? 'All Comments' : 'Timed Comments'}</h3>
                     { time!==0 ? <h3>{formatTime(time)} / {formatTime(props.duration)}</h3> : <h3>Click to Toggle</h3>} 
@@ -102,7 +102,7 @@ function CommentBox(props) {
                 <div id="chat-hider" onClick={()=>{setShowComments(!showComments)}}>
                     <h4>{showComments ? `Hide Comments` : `Show Comments`}</h4>
                 </div>
-            </>
+            </div>
         )
     }
 }

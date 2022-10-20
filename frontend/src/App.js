@@ -4,10 +4,11 @@ import { Route, Switch } from "react-router-dom";
 // import SignupForm from "./components/SignupForm";
 import VideoPage from "./components/VideoPage";
 import VideoForm from "./components/VideoForm";
-import DevelopmentIndex from "./components/DevelopmentIndex";
+// import DevelopmentIndex from "./components/DevelopmentIndex";
 import SearchResults from "./components/SearchResults";
 import './App.css'
 import TopBar from "./components/TopBar";
+import HomePage from "./components/HomePage";
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
             <VideoPage />
           </Route>
           <Route exact path='/'>
-            <DevelopmentIndex />
+            <HomePage />
           </Route>
           <Route path="/search/">
             <SearchResults />

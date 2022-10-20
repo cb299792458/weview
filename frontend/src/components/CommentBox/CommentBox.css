@@ -1,3 +1,14 @@
+#comments {
+    
+    margin-top: 20px;
+    margin-right: 5%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 400px;
+    height: fit-content;
+    background-color: white;
+}
+
 #chat-filter {
     width: 100%;
     height: 48px;
@@ -20,6 +31,7 @@
     overflow: auto;
     width: 100%;
     height: 50%;
+    max-height: 400px;
     /* background-color: white; */
     border: 1px gray solid;
 }
@@ -27,12 +39,7 @@
 #chat ul{
     flex-grow: 1;
     height: 80%;
-    /* min-height: 300px; */
 }
-
-/* #chat-hider {
-    border: 1px solid green;
-} */
 
 #chat-hider h4{
     text-align: center;
@@ -59,7 +66,6 @@ ul ul {
     margin: 1px;
     /* border: 1px solid black; */
 }
-
 
 #chat-button {
     padding: 0;

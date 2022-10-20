@@ -47,7 +47,7 @@
     font-weight: 600;
 }
 
-#chat-col {
+/* #chat-col {
     margin-top: 20px;
     margin-right: 5%;
     border: 1px solid gray;
@@ -55,19 +55,21 @@
     width: 400px;
     height: fit-content;
     background-color: white;
-}
+} */
 
 #description {
     margin: 20px 0px;
-    background-color:#F0F0F0;
+    background-color:#ececec;
     border-radius: 10px;
     padding: 10px;
+    /* border: 1px solid purple; */
 }
 
 #description-header {
     display: flex;
     font-weight: 600;
     gap: 10px;
+    /* border: 1px solid orangered; */
 }
 
 #like {

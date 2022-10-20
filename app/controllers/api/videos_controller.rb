@@ -34,8 +34,6 @@ class Api::VideosController < ApplicationController
         else
             render json: @video.errors.full_messages, status: 422
         end
-
-
     end
 
     def destroy

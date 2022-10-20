@@ -50,7 +50,7 @@ function VideoEditItem({video}) {
                     <button type="button" onClick={handleDelete}>Delete Video</button>
                 </div>
 
-                <label id="description">
+                <label id="edit-description">
                     <textarea
                         value={description}
                         rows="10"

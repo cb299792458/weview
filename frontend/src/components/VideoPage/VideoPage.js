@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from "react";
-import {getVideo, fetchVideo} from '../../store/video'
+import {getVideo, fetchVideo, getVideos, fetchVideos} from '../../store/video'
 import CommentBox from "../CommentBox";
 import { Link } from "react-router-dom";
 import pp from "../../pp.png";
 import like from "../../like.png";
 import liked from "../../liked.png";
 import { dislike, fetchLikes, getLikes, makeLike } from "../../store/like";
+import Related from "./Related";
 
 function VideoPage() {
     const dispatch = useDispatch();
@@ -16,6 +17,10 @@ function VideoPage() {
     const {videoId} = useParams();
     const video = useSelector(getVideo(videoId));
     const likes = useSelector(getLikes());
+    const videos = useSelector(getVideos);
+    // const video = videos.find( (video) => {
+    //     return video.id === videoId;
+    // });
 
     const [subs, setSubs] = useState(0);
     let comments = [];
@@ -25,6 +30,8 @@ function VideoPage() {
     useEffect( () => {
         dispatch(fetchVideo(videoId));
         dispatch(fetchLikes(videoId));
+        // dispatch(fetchVideos());
+
         setSubs(Math.floor(Math.random()*10000));
     }, []);
 
@@ -112,6 +119,7 @@ function VideoPage() {
                         duration={duration.current}
                         id={videoId}
                     /> : <p>loading comments</p>}
+                    {/* <Related vidoes={videos} videoId={video.id}/> */}
                 </div>
             </>
         )
