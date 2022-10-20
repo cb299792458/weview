@@ -1,7 +1,7 @@
 class Api::LikesController < ApplicationController
     def create
         if like = Like.find_by(like_params)
-            render json: {message: "Already liked?!", id: like.id}
+            # render json: {message: "Already liked?!", errors: ["Already liked?!"]}
         else
             like = Like.new(like_params)
             if like.save
@@ -21,8 +21,13 @@ class Api::LikesController < ApplicationController
 
     def destroy
         like = Like.find(params[:id])
-        like.destroy
-        render json: {message: "You did it!", id: like.id}
+        if like
+            like.destroy
+            render json: {message: "You did it!", id: like.id}
+        else
+            render json: {errors: ["Not Liked"], status: 422}
+
+        end
     end
 
     private

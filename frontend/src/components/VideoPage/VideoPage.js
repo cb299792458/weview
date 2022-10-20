@@ -6,6 +6,7 @@ import CommentBox from "../CommentBox";
 import { Link } from "react-router-dom";
 import pp from "../../pp.png";
 import like from "../../like.png";
+import liked from "../../liked.png";
 import { dislike, fetchLikes, getLikes, makeLike } from "../../store/like";
 
 function VideoPage() {
@@ -15,7 +16,6 @@ function VideoPage() {
     const {videoId} = useParams();
     const video = useSelector(getVideo(videoId));
     const likes = useSelector(getLikes());
-    const likers = likes.map( (like) => {return like.userId} );
 
     let subs = '1.23M';
     let comments = [];
@@ -28,6 +28,9 @@ function VideoPage() {
     }, []);
 
 
+    useEffect( () => {
+        dispatch(fetchLikes(videoId));
+    }, [likeCount]);
     
     
     const [timeDisplay, setTimeDisplay] = useState(true);
@@ -51,7 +54,9 @@ function VideoPage() {
         
         comments = video.comments;
 
+        const likers = likes.map( (like) => {return like.userId} );
         const toggleLike = () => {
+            if(!sessionUser){return alert("You must be logged in to do that!")}
             if(likes){
                 if(likers.includes(sessionUser.id)){
                     console.log("DISLIKING");
@@ -59,15 +64,16 @@ function VideoPage() {
                     setLikeCount(likeCount-1);
 
                     return dispatch(dislike(like.id))
+                    .catch(async (data) => {
+                        console.log(data.errors);
+                    })
                 } else {
-                    // likes.push(sessionUser.id);
                     console.log("LIKING");
                     setLikeCount(likeCount+1);
                     return dispatch(makeLike(sessionUser.id, videoId))
                 }
             }
         }
-
         return(
             <>
                 <div id="video-col">
@@ -88,7 +94,7 @@ function VideoPage() {
                     </Link>
                     <div id="description">
                         <span id="description-header">
-                            <img src={like} alt="" id="like" onClick={toggleLike}/>
+                            <img src={likes && likers.includes(sessionUser.id) ? liked : like} alt="" id="like" onClick={toggleLike}/>
                             <p>{`${likes ? likes.length : 0} likes`}</p>
                             <p>{video.timeAgo} ago</p>
                         </span>

@@ -12,9 +12,9 @@ export const makeLike = (userId, videoId) => async(dispatch) => {
     });
 
     let data = await res.json();
+    // console.log(data);
 
     if(!data.errors){
-        // dispatch(createComment(data.comment))
         dispatch({type: RECEIVE_LIKE, like: data.like })
         return res;
     } else {

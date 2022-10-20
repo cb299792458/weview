@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navigation from "../Navigation"
 import logo from '../../logo.png';
@@ -11,7 +10,7 @@ function TopBar(){
     const [query, setQuery] = useState("");
     return(
 
-        <div id="top">
+      <div id="top">
         <div id="logobox">
           <img src={hamburger} alt="" id={"hamburger"}/>
           <a href="/">

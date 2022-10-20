@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import * as sessionActions from "../../store/session";
+import LoginFormModal from "../LoginFormModal";
 
 const Navigation = () => {
 
@@ -35,12 +36,9 @@ const Navigation = () => {
 
         return(
             <div id="navigation">
-                <h2>You are not logged in.</h2>
-                <Link to="/login">Log In</Link>
-                <br></br>
-                <Link to="/signup">Sign Up</Link>
-                <br></br>
-                <Link to="/" onClick={handleClick}>Demo User</Link>
+                
+                <LoginFormModal />
+
             </div>
         )
     }

@@ -1,0 +1,52 @@
+#login-modal {
+    cursor: pointer;
+    margin: 10px;
+}
+
+#session-box {
+    width: 450px;
+    height: 500px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#session-box img{
+    height: 28px;
+    width: 80px;
+    margin: 50px;
+}
+
+#session-box form{
+    display: flex;
+    flex-direction: column;
+}
+
+#session-box input {
+    width: 364px;
+    height: 52px;
+    margin: 2px;
+    padding: 12px 14px;
+}
+
+form h4 {
+    color: #2064cc;
+    padding: 5px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#buttons button {
+    background-color: #2064cc;
+    color: white;
+    width: 80px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+}

@@ -1,4 +1,9 @@
 #navigation {
-    align-self: flex-end;
+    align-self: center;
     max-width: 156px;
+}
+
+#navigation img {
+    border: 1px solid lightskyblue;
+    border-radius: 20px;
 }
