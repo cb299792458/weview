@@ -39,10 +39,10 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: params[:id])
-    if @user
+    user = User.find_by(id: params[:id])
+    if user
       logout!
-      @user.destroy
+      user.destroy
       render json: {message: "Success!"}
     else
       render json: {message: "User not found!"}, status: 404
