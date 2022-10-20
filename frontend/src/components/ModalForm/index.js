@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 function ModalIndex() {
   
   const [showModal, setShowModal] = useState(false);
-  console.log("In Modal Index");
   const sessionUser = useSelector(state => state.session.user);
 
   if(!sessionUser){

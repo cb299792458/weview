@@ -8,6 +8,12 @@
     width: min-content;
 }
 
+.modal {
+    
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 14px;
+}
+
 #session-box {
     width: 450px;
     height: 500px;

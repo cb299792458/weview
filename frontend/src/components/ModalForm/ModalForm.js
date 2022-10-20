@@ -9,7 +9,7 @@ function ModalForm(props) {
   const sessionUser = useSelector(state => state.session.user);
   const [newUser, setNewUser] = useState(false);
   return (
-      <div id="session-box">
+      <div className="modal" id="session-box">
         <img src={google} alt=""/>
         { sessionUser && <UserEdit showFunction={props.showFunction} />}
 
