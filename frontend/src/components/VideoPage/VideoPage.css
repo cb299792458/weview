@@ -47,16 +47,6 @@
     font-weight: 600;
 }
 
-/* #chat-col {
-    margin-top: 20px;
-    margin-right: 5%;
-    border: 1px solid gray;
-    border-radius: 10px;
-    width: 400px;
-    height: fit-content;
-    background-color: white;
-} */
-
 #description {
     margin: 20px 0px;
     background-color:#ececec;
@@ -76,4 +66,50 @@
     padding: 0px, 10px;
     height: 12px;
     cursor: pointer;
+}
+
+#related {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#horizontal-tile {
+    width: 350px;
+}
+
+#horizontal-tile video {
+    width: 100%;
+}
+
+#horizontal-tile > h4{
+    margin: 20px;
+}
+
+#horizontal-tile h5 {
+    color: gray;
+    margin: 5px;
+}
+
+#tile-with-pic {
+    display: flex;
+    align-items: center;
+}
+
+#icon {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tile-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
