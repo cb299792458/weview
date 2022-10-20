@@ -13,3 +13,8 @@
     margin: 5px;
     cursor: pointer;
 }
+
+#control-panel {
+    display: flex;
+    
+}

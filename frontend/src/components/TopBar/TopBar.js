@@ -12,7 +12,7 @@ function TopBar(){
 
       <div id="top">
         <div id="logobox">
-          <img src={hamburger} alt="" id={"hamburger"}/>
+          <img src={hamburger} alt="" id={"hamburger"} onClick={()=>{alert('Links coming soon, for now just ask me for my GitHub')}}/>
           <a href="/">
             <img src={logo} alt="WeView logo" id={"logo"}></img>
           </a>

@@ -3,6 +3,11 @@
     margin: 10px;
 }
 
+#edit-modal {
+    /* border: 1px navy solid; */
+    width: min-content;
+}
+
 #session-box {
     width: 450px;
     height: 500px;

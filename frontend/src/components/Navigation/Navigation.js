@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
@@ -8,10 +8,11 @@ import profile from '../../profile.jpg'
 import signout from '../../signout.png'
 import upload from '../../upload.png'
 import edit from '../../edit.png'
+import { Modal } from "../../context/Modal";
+import ModalIndex from "../ModalForm";
 
 
 const Navigation = () => {
-
     const sessionUser = useSelector(state => state.session.user);
 
     const dispatch = useDispatch();
@@ -20,6 +21,22 @@ const Navigation = () => {
         dispatch(sessionActions.logoutUser(sessionUser.id))
         return (<Redirect to="/" />);
     }
+
+    // const [showModal, setShowModal] = useState(false);
+
+    // const editUser = () => {
+    //     console.log("editing");
+    //     setShowModal(true);
+    //     return (
+    //         <div id="edit-modal">
+    //           {showModal && (
+    //             <Modal onClose={() => setShowModal(false)}>
+    //               <ModalIndex />
+    //             </Modal>
+    //           )}
+    //         </div>
+    //       );
+    // }
 
     if (sessionUser){
         return (
@@ -30,23 +47,16 @@ const Navigation = () => {
                 <Link to={`/search/?u=${sessionUser.username}`}>
                     <img src={profile} alt="" title="Your Videos"></img>
                 </Link>
-                <img src={edit} alt="" title="Edit user"></img>
+                <ModalIndex />
                 <img src={signout} alt="" title="Sign out" onClick={handleLogOut}></img>
             </div>
 
-            // <>
-            //     <h2>Hello, {sessionUser.username}.</h2>
-            //     <button onClick={handleLogOut}>Logout</button>
-            //     <br></br>
-            //     <Link to="/videos/new">Upload</Link>
-            // </>
         )
     } else {
-
         return(
             <div id="navigation">
                 
-                <ModalForm />
+                <ModalIndex />
 
             </div>
         )

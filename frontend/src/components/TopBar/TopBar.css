@@ -13,6 +13,7 @@
     height: 56px;
     padding: 0px;
     position: relative;
+    cursor: pointer;
 }
 
 #logo {
@@ -36,6 +37,7 @@
     background: transparent;
     height: 40px;
     padding: 0%;
+    cursor: pointer;
 }
 
 #search-button {

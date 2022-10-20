@@ -3,16 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
-function SignupForm(props) {
+function UserEdit(props) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState(sessionUser.email);
+  const [username, setUsername] = useState(sessionUser.username);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-
-  if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,18 +24,16 @@ function SignupForm(props) {
     return setErrors(['Passwords Must Match']);
   };
 
-  const demoUser = ()=>{
-    const username = "Guest-" + Math.floor(Math.random()*1000000000);
-    const email = username + "@email.com";
-    const password = "password";
-    return dispatch(sessionActions.signupUser({ email, username, password }))
+  const handleLogOut = () => {
+    dispatch(sessionActions.logoutUser(sessionUser.id))
+    return (<Redirect to="/" />);
   }
 
   return (
     <form onSubmit={handleSubmit} id="sign-up">
 
-      <h1>Create your account</h1>
-      <p>to continue to WeView</p>
+      <h1>Update your account</h1>
+      <p>and continue to WeView</p>
 
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
@@ -46,7 +42,7 @@ function SignupForm(props) {
       <input
         type="text"
         value={email}
-        placeholder="Your email address"
+        placeholder="New email address"
         onChange={(e) => setEmail(e.target.value)}
         required
       />
@@ -54,7 +50,7 @@ function SignupForm(props) {
       <input
         type="text"
         value={username}
-        placeholder="Username"
+        placeholder="New username"
         onChange={(e) => setUsername(e.target.value)}
         required
       />
@@ -62,7 +58,7 @@ function SignupForm(props) {
       <input
         type="password"
         value={password}
-        placeholder="Password"
+        placeholder="New password"
         onChange={(e) => setPassword(e.target.value)}
         required
       />
@@ -70,21 +66,21 @@ function SignupForm(props) {
       <input
         type="password"
         value={confirmPassword}
-        placeholder="Confirm"
+        placeholder="Confirm new password"
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
       />
 
       <div id="buttons">
         <div id="button-links">
-          <h4 onClick={()=>{props.toggle(false)}}>Sign in instead</h4>
-          <h4 onClick={demoUser}>Demo user</h4>
+          <h4 onClick={handleLogOut}>Log out</h4>
+          <h4>Delete account</h4>
         </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">Update</button>
       </div>
     </form>
   );
 }
 
-export default SignupForm;
+export default UserEdit;
