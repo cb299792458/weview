@@ -5,14 +5,13 @@ import LoginForm from "../LoginForm";
 import SignupForm from "../SignupForm";
 import UserEdit from "../UserEdit";
 
-function ModalForm() {
+function ModalForm(props) {
   const sessionUser = useSelector(state => state.session.user);
   const [newUser, setNewUser] = useState(false);
-  console.log("reached modal");
   return (
       <div id="session-box">
         <img src={google} alt=""/>
-        { sessionUser && <UserEdit />}
+        { sessionUser && <UserEdit showFunction={props.showFunction} />}
 
         { !sessionUser && !newUser && <LoginForm toggle={setNewUser} />}
 

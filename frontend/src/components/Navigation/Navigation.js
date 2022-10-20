@@ -1,14 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import * as sessionActions from "../../store/session";
-import ModalForm from "../ModalForm";
 import profile from '../../profile.jpg'
 import signout from '../../signout.png'
 import upload from '../../upload.png'
-import edit from '../../edit.png'
-import { Modal } from "../../context/Modal";
 import ModalIndex from "../ModalForm";
 
 

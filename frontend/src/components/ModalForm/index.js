@@ -31,7 +31,7 @@ function ModalIndex() {
         <img src={edit} alt='' onClick={() => setShowModal(true)} />
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <ModalForm />
+            <ModalForm showFunction={setShowModal}/>
           </Modal>
         )}
       </div>
