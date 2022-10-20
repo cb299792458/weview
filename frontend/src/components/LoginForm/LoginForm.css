@@ -14,6 +14,7 @@ form h4 {
     color: #2064cc;
     align-self: start;
     margin: 10px;
+    cursor: pointer;
 }
 
 #sign-in #buttons {
@@ -22,7 +23,7 @@ form h4 {
     /* border: 1px solid salmon; */
     width: 100%;
     align-items: center;
-    margin-top: 44px;
+    margin-top: 43px;
 }
 
 #button-links {
