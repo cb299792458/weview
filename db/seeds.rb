@@ -43,7 +43,6 @@ ApplicationRecord.transaction do
         description: "Chi the kitten is becoming a fullstack programmer. She's learning everything from scratch in just 16 weeks. She has a really good idea for an app, and hopes to find a great job. Chi gets easily distracted, particularly attracted to small moving objects. Chi is generally sweet, but will sometimes come off as being rude. Chi is also very clumsy at times, and makes many mistakes, most of which she doesn't seem to be aware of, but she is a great programmer."
     )
     
-    # chi = File.open('app/chi.mp4')
     chi = URI.open("https://weview-seeds.s3.amazonaws.com/chi.mp4")
     v.upload.attach(io: chi, filename: 'chi.mp4')
 
@@ -99,6 +98,69 @@ ApplicationRecord.transaction do
         user_id: g.id,
         video_id: v.id
     )
+
+    v2 = Video.create!(
+        uploader_id: 2,
+        title: 'A Sample Video',
+        description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    )
+    
+    sample = URI.open("https://weview-seeds.s3.amazonaws.com/sample.mp4")
+    v2.upload.attach(io: sample, filename: 'sample.mp4')
+  
+    v3 = Video.create!(
+        uploader_id: 2,
+        title: 'bunny stretches to receive some kisses',
+        description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 'de Finibus Bonorum et Malorum' (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, 'Lorem ipsum dolor sit amet..', comes from a line in section 1.10.32."
+    )
+    
+    stretch = URI.open("https://weview-seeds.s3.amazonaws.com/stretch.mp4")
+    v3.upload.attach(io: stretch, filename: 'stretch.mp4')
+  
+    v4 = Video.create!(
+        uploader_id: 4,
+        title: 'bunny attacks cat',
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+    )
+    
+    attack = URI.open("https://weview-seeds.s3.amazonaws.com/attack.mp4")
+    v4.upload.attach(io: attack, filename: 'attack.mp4')
+  
+    v5 = Video.create!(
+        uploader_id: 4,
+        title: 'otters holding hands while drifting in the water',
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    )
+    
+    otters = URI.open("https://weview-seeds.s3.amazonaws.com/otters.mp4")
+    v5.upload.attach(io: otters, filename: 'otters.mp4')
+  
+    v6 = Video.create!(
+        uploader_id: 3,
+        title: 'Little kid explains while loop',
+        description: "This young child has started learning computer science at a very young age, and explains a while loop perfectly. How are we going to compete in the job market? He's sick at coding, and also seems kind of sick."
+    )
+    
+    kid = URI.open("https://weview-seeds.s3.amazonaws.com/kid.mp4")
+    v6.upload.attach(io: kid, filename: 'kid.mp4')
+  
+    v7 = Video.create!(
+        uploader_id: 3,
+        title: 'Cute Lamb Needs Cuddles',
+        description: "Someone please pet this lamb."
+    )
+    
+    lamb = URI.open("https://weview-seeds.s3.amazonaws.com/lamb.mp4")
+    v7.upload.attach(io: lamb, filename: 'lamb.mp4')
+  
+    v8 = Video.create!(
+        uploader_id: 1,
+        title: 'Newton`s Second Law, Video Lesson',
+        description: "Newton's Second Law is the most important equation in classical physics. It explains the relationship between net force and intertia, causing acceleration, which governs the motion of all moving objects throughout the known universe."
+    )
+    
+    physics = URI.open("https://weview-seeds.s3.amazonaws.com/physics.mp4")
+    v8.upload.attach(io: physics, filename: 'physics.mp4')
   
     puts "Done!"
   end

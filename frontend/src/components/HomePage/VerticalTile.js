@@ -16,23 +16,26 @@ function VerticalTile({videoId}) {
     
     if(video){
         return(
-            <li id="vertical-tile" key={video.id}>
+            <li className="vertical-tile" key={video.id}>
                 <Link to={`/videos/${video.id}`}>
-                    <video src={video.videoUrl} alt="" />
-                    <div id="tile-with-pic">
-    
-                        <div id="icon" style={{backgroundColor: "#" + color}}>
-                            <h2>{video.uploader.slice(0,1).toUpperCase()}</h2>
-                        </div>
-    
-                        <div>
-                            <h4>{video.title}</h4>
-                            <div id="tile-details">
-                                <h5>{video.uploader}</h5>
-                                <h5>{video.likes ? video.likes.length : 0} likes</h5>
-                                <h5>{video.timeAgo} ago</h5>
+                    <div id="vid-centerer">
+                        <video src={video.videoUrl} alt="" className="tile-vid"/>
+                        <div id="tile-with-pic">
+        
+                            <div id="icon" style={{backgroundColor: "#" + color}}>
+                                <h2>{video.uploader.slice(0,1).toUpperCase()}</h2>
+                            </div>
+        
+                            <div>
+                                <h4>{video.title}</h4>
+                                <div id="tile-details">
+                                    <h5>{video.uploader}</h5>
+                                    <h5>{video.likes ? video.likes.length : 0} likes</h5>
+                                    <h5>{video.timeAgo} ago</h5>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </Link>
             </li>
