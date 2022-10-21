@@ -65,3 +65,11 @@ function formatComment(comment){
     } else {return null}
 }
 ```
+
+## Future Direction
+The comment system requires more styling for readability and aesthetics. More control over comments would also be desireable, such that a video's uploader can remove bad comments or pin/highlight good ones. Voting on comments by viewers is also planned, in which viewers can mark comments as good questions, good answers, or just a comment that they like, and comments can be filtered so that only highly voted comments are visible. 
+
+## Special Thanks
+- Thanks to Ayce and the rest of the staff at App Academy, as a former teacher I appreciate all your hard work.
+- Thanks to my cohort-mates for their continued help and support, and congratulations to them as well.
+- Thanks to all my former students for inspiring me and helping us teach each other. 
