@@ -22,7 +22,7 @@ WeView has a fully functioning account management and User Authentication System
 ![alt text](https://github.com/cb299792458/weview/blob/main/screenshots/update.png "WeView")
 
 #### Nested Live Comments
-Because viewers are expected to both ask and answer questions, it is important parent comments and replies are clearly linked, even if they are created at different times. To accomplish this, all comments are rendered as `li` elements in a larger `ul`, and replies to a comment are rendered in a nested `ul` under their parent. Replies can have their own reply `ul` elements, and indenting is used to show the overall structure. The comment window only renders the root comments directly, once their timestamp has passed, and replies render below their parents only after their own separate timestamps. Here is the function used to format comments for display.
+Because viewers are expected to both ask and answer questions, it is important parent comments and replies are clearly linked, even if they are created at different times. To accomplish this, all comments are rendered as `li` elements in a larger `ul`, and replies to a comment are rendered in a nested `ul` under their parent. A recursive function is used so that replies can have their own reply `ul` elements, and indenting is used to show the overall structure. The comment window only renders the root comments directly, once their timestamp has passed, and replies render below their parents only after their own separate timestamps. Here is the function used to format comments for display.
 
 ```javascript
 function formatComment(comment){
