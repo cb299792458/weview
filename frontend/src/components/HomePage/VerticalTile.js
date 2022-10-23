@@ -7,7 +7,7 @@ function VerticalTile({videoId}) {
     const video = useSelector(getVideo(videoId));
     
     const dispatch = useDispatch();
-    const [color,setColor] = useState("")
+    const [color,setColor] = useState("");
 
     useEffect( () => {
         dispatch(fetchVideo(videoId))

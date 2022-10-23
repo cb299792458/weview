@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import CommentForm from "./CommentForm";
 
@@ -36,8 +36,13 @@ function CommentBox(props) {
         }
     }
     handleClick();
-
+    
     function formatComment(comment){
+
+        const [color,setColor] = useState("");
+        useEffect( () => {
+            setColor(Math.random().toString(16).substr(-6));
+        },[]);
 
         const children = comments.filter((otherComment)=>{
             return comment.id === otherComment.parentId;
@@ -56,19 +61,25 @@ function CommentBox(props) {
             <li key={comment.id} 
                 id={comment.id} 
                 className={ commentClass }> 
-                <div id="comment-top">
-                    <Link to={`/search/?u=${comment.commenter}`}>{comment.commenter}</Link>
-                    <pre>     </pre>
-                    <p>{formatTime(comment.timestamp)}</p>
+                <div id="whole-comment">
+                    <div id="icon" style={{backgroundColor: "#" + color}}>
+                        <h2>{comment.commenter.slice(0,1).toUpperCase()}</h2>
+                    </div>
+                    <div id="comment-text">
+                        <div id="comment-top">
+                            <Link to={`/search/?u=${comment.commenter}`}><h5>{comment.commenter}</h5></Link>
+                            <h6>{formatTime(comment.timestamp)}</h6>
+                            <button className="reply" id={comment.id} onClick={handleClick}>{ focus === comment.id ? 'Replying...' : 'Reply' }</button>
+                        </div>
+
+                        {`${comment.body}`}
+
+
+                        {children && childrenList}
+
+                    </div>
+
                 </div>
-
-                {`${comment.body}`}
-                <br></br>
-
-                {/* <span id="q"> q? </span><span id="w"> =w= </span><span id="e"> e! </span><span id="x"> [x] </span> */}
-                <span id={comment.id} onClick={handleClick}>{ focus === comment.id ? '*Replying...*' : 'Reply' }</span>
-
-                {children && childrenList}
             </li>
 
         if(time >= comment.timestamp || filterComments){

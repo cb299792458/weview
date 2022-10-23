@@ -43,7 +43,8 @@ function CommentForm(props) {
                 <input
                     id="chat-input"
                     onChange={(e)=>{setBody(e.target.value)}}
-                    value={body}>
+                    value={body} 
+                    placeholder="Add a comment">
 
                 </input>
                 <button id="chat-button">{ !props.focus ? "Comment" : "Reply"}</button>

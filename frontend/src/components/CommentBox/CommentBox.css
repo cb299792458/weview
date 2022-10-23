@@ -56,7 +56,6 @@
 #chat-input{
     width: 100%;
     /* border: 1px solid seagreen; */
-    /* margin: 10px; */
 }
 
 ul ul {
@@ -74,6 +73,26 @@ ul ul {
     cursor: pointer;
 }
 
-#type-here {
-    /* border: 1px solid yellow; */
+#whole-comment {
+    display: flex;
+}
+
+#comment-top {
+    display: flex;
+    align-items: center;
+}
+
+#comment-top h5 {
+    font-weight: 550;
+}
+
+#comment-top h6 {
+    color: gray;
+    margin: 5px;
+}
+
+.reply {
+    border-radius: 5px;
+    border: none;
+    font-size: 11px;
 }
