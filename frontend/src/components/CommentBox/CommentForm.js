@@ -38,7 +38,7 @@ function CommentForm(props) {
     const [body, setBody] = useState("");
 
     return(
-        <>
+        <div id="type-here">
             <form onSubmit={handleSubmit} className="chat-form">
                 <input
                     id="chat-input"
@@ -52,7 +52,7 @@ function CommentForm(props) {
             <ul>
                 {errors && errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-        </>
+        </div>
     )
 }
 

@@ -3,7 +3,7 @@
     align-items: center;
 }
 
-#logobox, #search-box {
+#logobox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,26 +23,39 @@
 
 #search-box {
     width: 600px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #search {
     height: 34px;
-    margin-left: 34px;
+    /* margin-left: 34px; */
+    margin-right: 0;
     font-size: 16px;
     flex-grow: 1;
-    max-width: 538px;
+    align-self: center;
+    /* max-width: 938px; */
+    max-height: 100%;
+    /* border: 1px solid violet; */
 }
 
 #magnifying-glass{
     border: 0;
     background: transparent;
-    height: 40px;
+    height: 100%;
     padding: 0%;
     cursor: pointer;
+    /* border: 1px solid red; */
+    align-self: center;
+    display: flex;
+    margin-bottom: 2px;
+    /* align-items: center; */
 }
 
 #search-button {
-    object-fit: contain;
     height: 100%;
     width: 100%;
+    
 }
 

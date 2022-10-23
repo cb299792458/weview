@@ -88,7 +88,6 @@ function CommentBox(props) {
                     { time!==0 ? <h3>{formatTime(time)} / {formatTime(props.duration)}</h3> : <h3>Click to Toggle</h3>} 
                 </div>}
                 {showComments && <div id="chat">
-                    {/* <hr></hr> */}
                     <ul key={comments}>
 
                         {roots.map( (root) => {

@@ -27,11 +27,14 @@ function VerticalTile({videoId}) {
                             </div>
         
                             <div>
-                                <h4>{video.title}</h4>
+                                <h4 id="vert-tile-title">{video.title}</h4>
                                 <div id="tile-details">
                                     <h5>{video.uploader}</h5>
-                                    <h5>{video.likes ? video.likes.length : 0} likes</h5>
-                                    <h5>{video.timeAgo} ago</h5>
+                                    <div id="likes-and-time">
+                                        <h5>{video.likes ? video.likes.length : 0} likes</h5>
+                                        <h5>•</h5>
+                                        <h5>{video.timeAgo} ago</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>

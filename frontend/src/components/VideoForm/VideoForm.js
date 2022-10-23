@@ -58,7 +58,7 @@ function VideoForm () {
     return (
         <div id="video-form">
             <h2>Upload a new video</h2>
-            <form onSubmit={handleSubmit} id="upload-form">
+            <form onSubmit={handleSubmit} className="upload-form">
                 <label>Title
                 <input type="text"
                     value={title}

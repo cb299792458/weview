@@ -4,11 +4,11 @@
     align-items: center;
 }
 
-#video-form h2, form{
+#video-form h2, #video-form form{
     margin: 40px;
 }
 
-#upload-form label, input, button {
+.upload-form label, .upload-form input, .upload-form button {
     margin: 20px;
 }
 

@@ -10,7 +10,11 @@
     max-height: 200px;
     /* border: 1px solid goldenrod; */
     margin: 2%;
+    
+}
 
+#vert-tile-title {
+    font-weight: 600;
 }
 
 #vid-centerer {
@@ -57,4 +61,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+#likes-and-time {
+    display: flex;
+    justify-content: center;
 }
