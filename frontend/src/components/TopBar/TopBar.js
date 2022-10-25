@@ -5,14 +5,14 @@ import hamburger from '../../hamburger.png';
 import search from '../../search.png'
 import { useHistory } from "react-router-dom";
 
-function TopBar(){
+function TopBar({toggle}){
     const history = useHistory();
     const [query, setQuery] = useState("");
     return(
 
       <div id="top">
         <div id="logobox">
-          <img src={hamburger} alt="" id={"hamburger"} onClick={()=>{alert('Links coming soon, for now just ask me for my GitHub')}}/>
+          <img src={hamburger} alt="" id={"hamburger"} onClick={toggle}/>
           <a href="/">
             <img src={logo} alt="WeView logo" id={"logo"}></img>
           </a>

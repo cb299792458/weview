@@ -11,3 +11,32 @@
     display: flex;
     justify-content: center;
 }
+
+#left {
+    width: 240px;
+    height: 100%;
+    /* border: 1px solid red; */
+    background-color: white;
+}
+
+.left-link {
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left-link :hover {
+    background-color: rgb(234, 234, 234);
+}
+
+#hide {
+    display: none;
+}
+
+#left-img {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
