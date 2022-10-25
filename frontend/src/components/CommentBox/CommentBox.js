@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import CommentForm from "./CommentForm";
 
@@ -16,7 +16,6 @@ function formatTime(time) {
 
 function CommentBox(props) {
     let comments = props.comments;
-
 
     comments.sort( (a,b) => a.timestamp - b.timestamp );
     let time = props.time;
@@ -36,13 +35,10 @@ function CommentBox(props) {
         }
     }
     handleClick();
+
+    const colors = ["black", "maroon", "red", "purple", "green", "lime", "olive", "navy"]
     
     function formatComment(comment){
-
-        const [color,setColor] = useState("");
-        useEffect( () => {
-            setColor(Math.random().toString(16).substr(-6));
-        },[]);
 
         const children = comments.filter((otherComment)=>{
             return comment.id === otherComment.parentId;
@@ -62,7 +58,7 @@ function CommentBox(props) {
                 id={comment.id} 
                 className={ commentClass }> 
                 <div id="whole-comment">
-                    <div id="icon" style={{backgroundColor: "#" + color}}>
+                    <div id="icon" style={{backgroundColor: comment.id ? colors[comment.id % 8] : "blue"}}>
                         <h2>{comment.commenter.slice(0,1).toUpperCase()}</h2>
                     </div>
                     <div id="comment-text">
