@@ -13,7 +13,7 @@ import LeftBar from "./components/LeftBar";
 
 function App() {
 
-  const [leftBar, toggleLeftBar] = useState(true);
+  const [leftBar, toggleLeftBar] = useState(false);
   const toggle = () => {
     toggleLeftBar(!leftBar);
   }

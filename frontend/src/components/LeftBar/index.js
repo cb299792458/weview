@@ -1,26 +1,117 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import home from '../../home.png'
-function LeftBar() {
+import game from '../../game.png'
+import music from '../../music.png'
+import pokeball from '../../pokeball.png'
+import tent from '../../tent.png'
+import github from '../../github.png'
+import linkedin from '../../linkedin.png'
+import kelp from '../../kelp.png'
+import camera from '../../camera.png'
+import paint from '../../paint.png'
 
+function LeftBar() {
 
     return(
         <ul>
-            <li><Link to="/">
+        <li><Link to="/">
                 <div className="left-link">
                     <div id="left-img">
-                        <img src={home} alt=""></img>
+                        <img src={home} alt="" class="icon"></img>
                     </div>
                     <h3>Home</h3>
                 </div>
             </Link></li>
-            <li className="left-link"><a href="https://github.com/cb299792458/weview"><h3>GitHub</h3></a></li>
-            <li className="left-link"><Link to=""><h3>LinkedIn</h3></Link></li>
-            <li className="left-link"><Link to=""><h3>Snacke</h3></Link></li>
-            <li className="left-link"><Link to=""><h3>Besty</h3></Link></li>
-            <li className="left-link"><Link to=""><h3>Besty</h3></Link></li>
-            <li className="left-link"><Link to=""><h3>Besty</h3></Link></li>
-            <li className="left-link"><Link to=""><h3>HipPark</h3></Link></li>
+            <li><a href="https://www.linkedin.com/in/brian-lam-962ba833/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={linkedin} alt=""></img>
+                    </div>
+                    <h3>My LinkedIn</h3>
+                </div>
+            </a></li>
+            <li><a href="https://github.com/cb299792458">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={github} alt=""></img>
+                    </div>
+                    <h3>My GitHub</h3>
+                </div>
+            </a></li>
+            <li><a href="https://github.com/cb299792458/weview">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={github} alt=""></img>
+                    </div>
+                    <h3>This Repo</h3>
+                </div>
+            </a></li>
+            <li><a href="https://spotifreeaa22.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={music} alt=""></img>
+                    </div>
+                    <h3>Spotifree</h3>
+                </div>
+            </a></li>
+            <li><a href="https://besty-2022.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={pokeball} alt=""></img>
+                    </div>
+                    <h3>Besty</h3>
+                </div>
+            </a></li>
+            <li><a href="https://heroku-hippark.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={tent} alt=""></img>
+                    </div>
+                    <h3>Hip Park</h3>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={music} alt=""></img>
+                    </div>
+                    <h3>Wavesense</h3>
+                </div>
+            </a></li>
+            <li><a href="https://heroku-kelp-1.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={kelp} alt=""></img>
+                    </div>
+                    <h3>Kelp</h3>
+                </div>
+            </a></li>
+            <li><a href="https://paintbunny.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={paint} alt=""></img>
+                    </div>
+                    <h3>Paint Bunny</h3>
+                </div>
+            </a></li>
+            <li><a href="https://momentcaptur.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={camera} alt=""></img>
+                    </div>
+                    <h3>Moment Captur</h3>
+                </div>
+            </a></li>
+            <li><a href="https://cb299792458.github.io/snacke/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={game} alt=""></img>
+                    </div>
+                    <h3>Snacke</h3>
+                </div>
+            </a></li>
+
         </ul>
     )
 }

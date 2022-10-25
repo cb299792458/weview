@@ -13,7 +13,7 @@
 }
 
 #left {
-    width: 240px;
+    width: 300px;
     height: 100%;
     /* border: 1px solid red; */
     background-color: white;
@@ -35,8 +35,17 @@
 }
 
 #left-img {
-    width: 40px;
+    height: 100%;
+    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.icon {
+    height: 100%;
+}
+
+#left-img img {
+    height: 20px;
 }
