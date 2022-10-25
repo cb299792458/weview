@@ -49,3 +49,7 @@
 #left-img img {
     height: 20px;
 }
+
+#right {
+    display: flex;
+}
