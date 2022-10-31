@@ -19,22 +19,22 @@ ApplicationRecord.transaction do
     l = User.create!(
         username: 'lamb', 
         email: 'lamb@gmail.com', 
-        password: 'password'
+        password: 'wordpass'
     )
     s = User.create!(
         username: 'sheep', 
         email: 'sheep@gmail.com', 
-        password: 'password'
+        password: 'wordpass'
     )
     k = User.create!(
         username: 'kid', 
         email: 'kid@gmail.com', 
-        password: 'password'
+        password: 'wordpass'
     )
     g = User.create!(
         username: 'goat', 
         email: 'goat@gmail.com', 
-        password: 'password'
+        password: 'wordpass'
     )
 
     v = Video.create!(
