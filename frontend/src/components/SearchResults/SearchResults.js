@@ -24,7 +24,7 @@ function SearchResults() {
         videos = allVideos;
         words.forEach( (word) => {
             videos = videos.filter( (video) => {
-                return video.title.includes(word);
+                return video.title.toLowerCase().includes(word.toLowerCase());
             });
         });
 
