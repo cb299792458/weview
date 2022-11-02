@@ -7,6 +7,7 @@ ApplicationRecord.transaction do
     Comment.destroy_all
     Like.destroy_all
   
+    
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
