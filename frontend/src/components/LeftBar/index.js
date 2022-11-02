@@ -10,6 +10,13 @@ import linkedin from '../../linkedin.png'
 import kelp from '../../kelp.png'
 import camera from '../../camera.png'
 import paint from '../../paint.png'
+import amazon from '../../amazon.png'
+import stack from '../../stack.png'
+import angel from '../../angel.png'
+import t from '../../t.png'
+import table from '../../table.png'
+import facebook from '../../facebook.jpg'
+import discord from '../../discord.png'
 
 function LeftBar() {
 
@@ -37,6 +44,14 @@ function LeftBar() {
                         <img src={github} alt=""></img>
                     </div>
                     <h3>My GitHub</h3>
+                </div>
+            </a></li>
+            <li><a href="https://angel.co/u/brian-lam-29">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={angel} alt=""></img>
+                    </div>
+                    <h3>My AngelList</h3>
                 </div>
             </a></li>
             <li><a href="https://github.com/cb299792458/weview">
@@ -71,7 +86,7 @@ function LeftBar() {
                     <h3>Hip Park</h3>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="https://wavesense.herokuapp.com/">
                 <div className="left-link">
                     <div id="left-img">
                         <img src={music} alt=""></img>
@@ -101,6 +116,62 @@ function LeftBar() {
                         <img src={camera} alt=""></img>
                     </div>
                     <h3>Moment Captur</h3>
+                </div>
+            </a></li>
+            <li><a href="https://paymazone.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={amazon} alt=""></img>
+                    </div>
+                    <h3>Paymazone</h3>
+                </div>
+            </a></li>
+            <li><a href="https://syntax-error-fs.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={stack} alt=""></img>
+                    </div>
+                    <h3>Syntax Error</h3>
+                </div>
+            </a></li>
+            <li><a href="https://fishcord.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={discord} alt=""></img>
+                    </div>
+                    <h3>Fishcord</h3>
+                </div>
+            </a></li>
+            <li><a href="https://onlyfriends24.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={facebook} alt=""></img>
+                    </div>
+                    <h3>OnlyFriends</h3>
+                </div>
+            </a></li>
+            <li><a href="https://trnkt-2022.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={t} alt=""></img>
+                    </div>
+                    <h3>Trnkt</h3>
+                </div>
+            </a></li>
+            <li><a href="https://eatingeasy.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={table} alt=""></img>
+                    </div>
+                    <h3>Eating Easy</h3>
+                </div>
+            </a></li>
+            <li><a href="https://ryamazon.herokuapp.com/">
+                <div className="left-link">
+                    <div id="left-img">
+                        <img src={amazon} alt=""></img>
+                    </div>
+                    <h3>Ryamazon</h3>
                 </div>
             </a></li>
             <li><a href="https://cb299792458.github.io/snacke/">

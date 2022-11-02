@@ -48,6 +48,7 @@ function App() {
 
         </div>
       </div>
+      <div><h6 id="footer">WeView © 2022 Brian Lam (Click the hamburger icon in the top left for more information and affiliate links.) Thanks for visiting my site! I worked pretty hard, and I hope you enjoyed it. </h6></div>
     </div>
   );
 }

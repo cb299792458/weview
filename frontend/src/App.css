@@ -52,4 +52,11 @@
 
 #right {
     display: flex;
+    height: 95vh;
+}
+
+#footer {
+    background-color: whitesmoke;
+    text-align: center;
+    padding-bottom: 5px;
 }
