@@ -125,7 +125,7 @@ ApplicationRecord.transaction do
     )
     
     snacke = URI.open("https://weview-seeds.s3.amazonaws.com/snacke.mp4")
-    v4.upload.attach(io: snacke, filename: 'snacke')
+    v4.upload.attach(io: snacke, filename: 'snacke.mp4')
   
     v5 = Video.create!(
         uploader_id: 4,
