@@ -52,11 +52,15 @@
 
 #right {
     display: flex;
-    height: 95%;
+    /* height: 95%; */
 }
 
 #footer {
     background-color: whitesmoke;
     text-align: center;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
