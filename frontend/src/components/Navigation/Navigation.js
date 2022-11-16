@@ -23,7 +23,7 @@ const Navigation = () => {
         return (
             <div id="control-panel">
                 <Link to="/videos/new">
-                    <img src={upload} alt="" title="Upload video"></img>
+                    <img id="upload" src={upload} alt="" title="Upload video"></img>
                 </Link>
                 <Link to={`/search/?u=${sessionUser.username}`}>
                     <img src={profile} alt="" title="Your Videos"></img>

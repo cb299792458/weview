@@ -96,3 +96,7 @@ ul ul {
     border: none;
     font-size: 11px;
 }
+
+#chat li {
+    margin: 15px 10px;
+}

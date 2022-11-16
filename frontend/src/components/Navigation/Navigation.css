@@ -16,5 +16,15 @@
 
 #control-panel {
     display: flex;
-    
+    margin-right: 10px;
+}
+
+#control-panel a {
+    align-self: center;
+    display: flex;
+}
+
+#control-panel #upload {
+    height: 20px;
+    align-self: center;
 }
