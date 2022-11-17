@@ -18,31 +18,38 @@ function VideoForm () {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        setSubmitted(true);
-
-        const formData = new FormData();
-        formData.append('video[title]', title);
-        formData.append('video[description]', description);
-        formData.append('video[uploader_id]', sessionUser.id);
-        if (videoFile) {
-          formData.append('video[upload]', videoFile);
+        if(title && description && fileType()){
+            setSubmitted(true);
+    
+            const formData = new FormData();
+            formData.append('video[title]', title);
+            formData.append('video[description]', description);
+            formData.append('video[uploader_id]', sessionUser.id);
+            if (videoFile) {
+              formData.append('video[upload]', videoFile);
+            }
+    
+            const res = await csrfFetch('/api/videos', {
+                method: 'POST',
+                body: formData
+            });
+    
+            if(res.ok){
+                const message = await res.json();
+                
+                setTitle("");
+                setDescription("");
+                setVideoFile(null);
+    
+                history.push(`/videos/${message.id}`)
+            }
+        } else {
+            alert('There is an issue with your upload. Check the error messages at the bottom of the form.')
         }
+    }
 
-        const res = await csrfFetch('/api/videos', {
-            method: 'POST',
-            body: formData
-        });
-
-        if(res.ok){
-            const message = await res.json();
-            
-            setTitle("");
-            setDescription("");
-            setVideoFile(null);
-
-            history.push(`/videos/${message.id}`)
-        }
-
+    const fileType = () => {
+        return videoFile && videoFile.name[videoFile.name.length-3] === 'm'
     }
 
     const handleFile = e => {
@@ -88,28 +95,11 @@ function VideoForm () {
                         <ul>
                             {title ? '' : <li>Title can't be blank</li>}
                             {description ? '' : <li>Description can't be blank</li>}
-                            {videoFile && videoFile.name[videoFile.name.length-3] === 'm' ? '' : <li>Video file must be .mp4 or .mov</li>}
+                            {fileType() ? '' : <li>Video file must be .mp4 or .mov</li>}
                             {submitted ? <li>Uploading...</li> : ''}
                         </ul>
                     </form>
-                    {/* <form onSubmit={handleSubmit}>
-                        <div id='right-side'>
-                            <label>Title
-                            <input type="text"
-                                value={title}
-                                onChange={(e)=>setTitle(e.target.value)}/>
-                            </label>
-                            <label>Description
-                                <input type="text"
-                                    value={description}
-                                    onChange={(e)=>setDescription(e.target.value)}/>
-                            </label>
 
-                            <input type="file" onChange={handleFile}/>
-
-                            <button type="submit">Upload Video</button>
-                        </div>
-                    </form> */}
                 </div>
             </div>
 
