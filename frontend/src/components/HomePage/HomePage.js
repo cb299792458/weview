@@ -11,7 +11,7 @@ function HomePage() {
         dispatch(fetchVideos());
     },[]);
 
-    const videosCopy = [...videos].slice(0,8);
+    const videosCopy = [...videos].slice(0,24);
 
     if(videosCopy){
         return(
