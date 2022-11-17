@@ -96,7 +96,7 @@ function VideoForm () {
                             {title ? '' : <li>Title can't be blank</li>}
                             {description ? '' : <li>Description can't be blank</li>}
                             {fileType() ? '' : <li>Video file must be .mp4 or .mov</li>}
-                            {submitted ? <li>Uploading...</li> : ''}
+                            {submitted ? <li><h3>Uploading...</h3></li> : ''}
                         </ul>
                     </form>
 
