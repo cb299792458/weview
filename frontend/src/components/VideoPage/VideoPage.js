@@ -26,7 +26,6 @@ function VideoPage() {
     useEffect( () => {
         dispatch(fetchVideo(videoId));
         dispatch(fetchLikes(videoId));
-
         
         setSubs(Math.floor(Math.random()*10000));
     }, []);

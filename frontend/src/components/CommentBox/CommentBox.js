@@ -70,7 +70,6 @@ function CommentBox(props) {
 
                         {`${comment.body}`}
 
-
                         {children && childrenList}
 
                     </div>

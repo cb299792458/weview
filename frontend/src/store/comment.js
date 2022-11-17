@@ -15,9 +15,9 @@ export const writeComment = (comment) => async(dispatch) => {
 
     let data = await res.json();
 
+    // This doesn't do anything...
     if(!data.errors){
         dispatch(createComment(data.comment))
-
         return res;
     } else {
         throw data;

@@ -51,7 +51,7 @@ function LeftBar() {
                     <div id="left-img">
                         <img src={angel} alt=""></img>
                     </div>
-                    <h3>My AngelList</h3>
+                    <h3>My Wellfound</h3>
                 </div>
             </a></li>
             <li><a href="https://github.com/cb299792458/weview">
