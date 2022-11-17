@@ -1,30 +1,60 @@
+#upload-edit-column {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
 #video-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid lightgray;
+    height: fit-content;
+    margin: 40px;
+    background-color: white;
+    width: fit-content;
 }
 
-#video-form h2, #video-form form{
+#upload-edit-column h2, #video-form form, #video-edit-item form {
     margin: 40px;
 }
 
-.upload-form label, .upload-form input, .upload-form button {
-    margin: 20px;
+.upload-form {
+    background-color: white;
+    display: flex;
+}
+
+#arrow {
+    max-width: 300px;
+    margin: 40px;
+    height: 200px;
 }
 
 #edit-list {
     max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input[type=file] {
+    width: 165px;
 }
 
 #video-edit-item {
     border: 1px solid lightgray;
     height: 300px;
     display: flex;
-    margin: 25px;
+    margin: 40px;
     background-color: white;
+    width: fit-content;
+    align-self: center;
 }
+
 #video-edit-item video {
     max-width: 400px;
+    margin: 40px;
 }
 #video-edit-item > div {
     flex-grow: 1;
@@ -32,7 +62,7 @@
 
 #top-right {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #edit-description {

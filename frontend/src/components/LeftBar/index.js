@@ -25,7 +25,7 @@ function LeftBar() {
         <li><Link to="/">
                 <div className="left-link">
                     <div id="left-img">
-                        <img src={home} alt="" class="icon"></img>
+                        <img src={home} alt="" className="icon"></img>
                     </div>
                     <h3>Home</h3>
                 </div>

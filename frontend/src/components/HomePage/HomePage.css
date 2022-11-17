@@ -6,7 +6,7 @@
 }
 
 .vertical-tile {
-    border: 1px solid goldenrod;
+    /* border: 1px solid goldenrod; */
     flex: 1 1 320px 180px;
     list-style: none;
     margin: 10px;
@@ -24,7 +24,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-
 }
 
 .tile-vid {
@@ -34,18 +33,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 300px;
+    max-height: 220px;
 }
-
-
-
-
-
-
-
-
-
-
 
 .vertical-tile h4{
     margin: 5px;

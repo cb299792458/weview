@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { fetchVideos, getVideos } from '../../store/video';
 import VideoEditItem from './VideoEditItem';
+import arrow from '../../arrow.png';
 
 function VideoForm () {
     const [title, setTitle] = useState ("");
@@ -13,14 +14,16 @@ function VideoForm () {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
+    const [submitted,setSubmitted] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setSubmitted(true);
 
         const formData = new FormData();
         formData.append('video[title]', title);
         formData.append('video[description]', description);
-        formData.append('video[uploader_id', sessionUser.id);
+        formData.append('video[uploader_id]', sessionUser.id);
         if (videoFile) {
           formData.append('video[upload]', videoFile);
         }
@@ -56,33 +59,70 @@ function VideoForm () {
     });
 
     return (
-        <div id="video-form">
+        <div id='upload-edit-column'>
             <h2>Upload a new video</h2>
-            <form onSubmit={handleSubmit} className="upload-form">
-                <label>Title
-                <input type="text"
-                    value={title}
-                    onChange={(e)=>setTitle(e.target.value)}/>
-                </label>
-                <label>Description
-                    <input type="text"
-                        value={description}
-                        onChange={(e)=>setDescription(e.target.value)}/>
-                </label>
+            <div id="video-form">
+                <div className='upload-form'>
+                    <img src={arrow} alt='' id='arrow'/>
+                    <form onSubmit={handleSubmit}>
 
-                <input type="file" onChange={handleFile}/>
+                        <div id="top-right">
+                            <label>Title: 
+                            <input type="text"
+                                value={title}
+                                onChange={(e)=>setTitle(e.target.value)}/>
+                            </label>
+                            <input type="file" onChange={handleFile}/>
+                            <button type="submit">Upload Video</button>
 
-                <button type="submit">Upload Video</button>
-            </form>
+                        </div>
+
+                        <label id="edit-description">
+                            <textarea
+                                value={description}
+                                rows="10"
+                                cols="80"
+                                onChange={(e)=>setDescription(e.target.value)}/>
+                        </label>
+
+                        <ul>
+                            {title ? '' : <li>Title can't be blank</li>}
+                            {description ? '' : <li>Description can't be blank</li>}
+                            {videoFile && videoFile.name[videoFile.name.length-3] === 'm' ? '' : <li>Video file must be .mp4 or .mov</li>}
+                            {submitted ? <li>Uploading...</li> : ''}
+                        </ul>
+                    </form>
+                    {/* <form onSubmit={handleSubmit}>
+                        <div id='right-side'>
+                            <label>Title
+                            <input type="text"
+                                value={title}
+                                onChange={(e)=>setTitle(e.target.value)}/>
+                            </label>
+                            <label>Description
+                                <input type="text"
+                                    value={description}
+                                    onChange={(e)=>setDescription(e.target.value)}/>
+                            </label>
+
+                            <input type="file" onChange={handleFile}/>
+
+                            <button type="submit">Upload Video</button>
+                        </div>
+                    </form> */}
+                </div>
+            </div>
 
             <h2>Edit your videos</h2>
+            
             <ul id="edit-list">
                 {userVideos.map( (video) => {
                     return(
-                        <VideoEditItem video={video} />
+                        <VideoEditItem video={video} key={video.id}/>
                     )
                 })}
             </ul>
+
         </div>
     );
 }

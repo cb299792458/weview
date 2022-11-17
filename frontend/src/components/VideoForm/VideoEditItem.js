@@ -40,21 +40,21 @@ function VideoEditItem({video}) {
             <form onSubmit={handleSubmit}>
 
                 <div id="top-right">
-                    <label>Title
+                    <label>Title: 
                     <input type="text"
                         value={title}
                         onChange={(e)=>setTitle(e.target.value)}/>
                     </label>
 
-                    <button type="submit">Update Video</button>
                     <button type="button" onClick={handleDelete}>Delete Video</button>
+                    <button type="submit">Update Video</button>
                 </div>
 
                 <label id="edit-description">
                     <textarea
                         value={description}
                         rows="10"
-                        cols="50"
+                        cols="80"
                         onChange={(e)=>setDescription(e.target.value)}/>
                 </label>
 

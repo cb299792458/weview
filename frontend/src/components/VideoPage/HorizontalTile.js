@@ -4,16 +4,21 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchVideo, getVideo } from "../../store/video";
 
 function HorizontalTile({videoId}) {
-    const video = useSelector(getVideo(videoId));
+    let video = useSelector(getVideo(videoId));
 
     const dispatch = useDispatch();
     const [color,setColor] = useState("")
 
     useEffect( () => {
-        dispatch(fetchVideo(videoId))
+        dispatch(fetchVideo(videoId));
+        dispatch(fetchVideo(1));
         setColor(Math.random().toString(16).substr(-6));
     },[]);
     
+    if(!video){
+        video = useSelector(getVideo(1));
+    }
+
     if(video){
         return(
             <li id="horizontal-tile" key={video.id}>
@@ -38,7 +43,8 @@ function HorizontalTile({videoId}) {
                 </Link>
             </li>
         )
-
+    } else {
+        return
     }
 }
 
