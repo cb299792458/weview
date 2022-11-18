@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from "react";
-import {getVideo, fetchVideo, fetchVideos, getVideos} from '../../store/video'
+import {getVideo, fetchVideo} from '../../store/video'
 import CommentBox from "../CommentBox";
 import { Link } from "react-router-dom";
 import pp from "../../pp.png";
@@ -16,12 +16,6 @@ function VideoPage() {
 
     const {videoId} = useParams();
     const video = useSelector(getVideo(videoId));
-    // const videos = useSelector(getVideos).slice();
-    // console.log(videos);
-    // const video = videos.find((v)=>{
-    //     console.log(v.id, parseInt(videoId));
-    //     return v.id === parseInt(videoId);
-    // });
 
     const likes = useSelector(getLikes());
 
@@ -31,7 +25,6 @@ function VideoPage() {
     
     useEffect( () => {
         dispatch(fetchVideo(videoId));
-        // dispatch(fetchVideos());
 
         dispatch(fetchLikes(videoId));
         
@@ -72,7 +65,6 @@ function VideoPage() {
             if(!sessionUser){return alert("You must be logged in to do that!")}
             if(likes){
                 if(likers.includes(sessionUser.id)){
-                    // console.log("DISLIKING");
                     const like = likes.find( (like) => like.userId === sessionUser.id )
                     setLikeCount(likeCount-1);
 
@@ -81,7 +73,6 @@ function VideoPage() {
                         console.log(data.errors);
                     })
                 } else {
-                    // console.log("LIKING");
                     setLikeCount(likeCount+1);
                     return dispatch(makeLike(sessionUser.id, videoId))
                 }
