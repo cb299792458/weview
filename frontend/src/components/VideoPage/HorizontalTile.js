@@ -15,10 +15,6 @@ function HorizontalTile({videoId}) {
         setColor(Math.random().toString(16).substr(-6));
     },[]);
     
-    if(!video){
-        video = useSelector(getVideo(1));
-    }
-
     if(video){
         return(
             <li id="horizontal-tile" key={video.id}>
@@ -43,8 +39,6 @@ function HorizontalTile({videoId}) {
                 </Link>
             </li>
         )
-    } else {
-        return
     }
 }
 

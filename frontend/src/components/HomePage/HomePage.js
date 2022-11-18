@@ -18,7 +18,7 @@ function HomePage() {
             <ul id='recommended'>
                 {videosCopy.map( (video) => {
                     return(
-                        <VerticalTile videoId={video.id} />
+                        <VerticalTile videoId={video.id} key={video.id}/>
                     )
                 })}
 

@@ -19,18 +19,17 @@ function VideoPage() {
     const likes = useSelector(getLikes());
 
     const [subs, setSubs] = useState(0);
-    let comments = [];
     const [likeCount, setLikeCount] = useState(likes.length);
     
-
+    
     useEffect( () => {
         dispatch(fetchVideo(videoId));
         dispatch(fetchLikes(videoId));
         
         setSubs(Math.floor(Math.random()*10000));
     }, []);
-
-
+    
+    
     useEffect( () => {
         dispatch(fetchLikes(videoId));
     }, [likeCount]);
@@ -53,6 +52,7 @@ function VideoPage() {
     onTimeUpdate={updateTime}
     />
     
+    let comments = [];
     if(video && video.likes){
         
         comments = video.comments;
@@ -62,7 +62,7 @@ function VideoPage() {
             if(!sessionUser){return alert("You must be logged in to do that!")}
             if(likes){
                 if(likers.includes(sessionUser.id)){
-                    console.log("DISLIKING");
+                    // console.log("DISLIKING");
                     const like = likes.find( (like) => like.userId === sessionUser.id )
                     setLikeCount(likeCount-1);
 
@@ -71,7 +71,7 @@ function VideoPage() {
                         console.log(data.errors);
                     })
                 } else {
-                    console.log("LIKING");
+                    // console.log("LIKING");
                     setLikeCount(likeCount+1);
                     return dispatch(makeLike(sessionUser.id, videoId))
                 }
@@ -82,7 +82,6 @@ function VideoPage() {
                 <div id="video-col">
                     <div id="vid-box">
                         {vid || "no vid"}
-
                     </div>
                     
                     <h2 id="title">{video.title}</h2>
@@ -114,7 +113,7 @@ function VideoPage() {
                         duration={duration.current}
                         id={videoId}
                     /> : <p>loading comments</p>}
-                    <Related videoId={video.id + 1}/>
+                    <Related videoId={video.id+1}/>
                 </div>
             </>
         )
