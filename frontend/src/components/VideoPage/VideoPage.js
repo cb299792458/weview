@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from "react";
-import {getVideo, fetchVideo} from '../../store/video'
+import {getVideo, fetchVideo, fetchVideos, getVideos} from '../../store/video'
 import CommentBox from "../CommentBox";
 import { Link } from "react-router-dom";
 import pp from "../../pp.png";
@@ -16,6 +16,13 @@ function VideoPage() {
 
     const {videoId} = useParams();
     const video = useSelector(getVideo(videoId));
+    // const videos = useSelector(getVideos).slice();
+    // console.log(videos);
+    // const video = videos.find((v)=>{
+    //     console.log(v.id, parseInt(videoId));
+    //     return v.id === parseInt(videoId);
+    // });
+
     const likes = useSelector(getLikes());
 
     const [subs, setSubs] = useState(0);
@@ -24,6 +31,8 @@ function VideoPage() {
     
     useEffect( () => {
         dispatch(fetchVideo(videoId));
+        // dispatch(fetchVideos());
+
         dispatch(fetchLikes(videoId));
         
         setSubs(Math.floor(Math.random()*10000));
@@ -53,6 +62,7 @@ function VideoPage() {
     />
     
     let comments = [];
+
     if(video && video.likes){
         
         comments = video.comments;
@@ -122,6 +132,8 @@ function VideoPage() {
             <h1>Loading video...</h1>
         )
     }
+
+    
 }
 
 export default VideoPage

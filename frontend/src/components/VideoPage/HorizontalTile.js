@@ -4,7 +4,9 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchVideo, getVideo } from "../../store/video";
 
 function HorizontalTile({videoId}) {
-    let video = useSelector(getVideo(videoId));
+    let video0 = useSelector(getVideo(videoId));
+    let video1 = useSelector(getVideo(1));
+    let video = video0 || video1;
 
     const dispatch = useDispatch();
     const [color,setColor] = useState("")
@@ -15,7 +17,7 @@ function HorizontalTile({videoId}) {
         setColor(Math.random().toString(16).substr(-6));
     },[]);
     
-    if(video){
+    if( video ){
         return(
             <li id="horizontal-tile" key={video.id}>
                 <h4>You may also like...</h4>
