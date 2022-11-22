@@ -70,7 +70,7 @@ function CommentBox(props) {
 
                         {`${comment.body}`}
 
-                        {children && childrenList}
+                        {children.length ? childrenList : ''}
 
                     </div>
 
@@ -87,6 +87,10 @@ function CommentBox(props) {
 
 
     if(comments){
+        const rootLis = roots.map( (root) => {
+            return formatComment(root);
+        });
+        // console.log(!!rootLis[0]);
         return(
             <div id="comments">
                 {showComments && <div id="chat-filter" onClick={()=>{setFilterComments(!filterComments)}}>
@@ -96,9 +100,7 @@ function CommentBox(props) {
                 {showComments && <div id="chat">
                     <ul key={comments}>
 
-                        {roots.map( (root) => {
-                            return formatComment(root);
-                        })}
+                        {!!rootLis[0] ? rootLis : <li>No Comments Yet...</li>}
 
                     </ul>
         

@@ -77,8 +77,8 @@ function SignupForm(props) {
 
       <div id="buttons">
         <div id="button-links">
-          <h4 onClick={()=>{props.toggle(false)}}>Sign in instead</h4>
-          <h4 onClick={demoUser}>Demo user</h4>
+          <h4 onClick={()=>{props.toggle(false)}}>Sign In Instead</h4>
+          <h4 onClick={demoUser}>Demo Login</h4>
         </div>
 
         <button type="submit">Sign Up</button>

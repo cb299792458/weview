@@ -3,6 +3,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex: 1 0 100%;
+    max-width: 78%;
+    /* border: 1px red solid; */
+    margin: auto;
 }
 
 .vertical-tile {
@@ -33,7 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 220px;
+    max-height: 200px;
 }
 
 .vertical-tile h4{

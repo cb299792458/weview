@@ -58,11 +58,11 @@ function LoginForm(props) {
 
       <div id="buttons">
         <div id="button-links">
-          <h4 onClick={()=>{props.toggle(true)}}>Create account</h4>
-          <h4 onClick={demoUser}>Demo login</h4>
+          <h4 onClick={()=>{props.toggle(true)}}>Create Account</h4>
+          <h4 onClick={demoUser}>Demo Login</h4>
         </div>
 
-        <button type="submit">Log In</button>
+        <button type="submit">Login</button>
       </div>
     </form>
   );
