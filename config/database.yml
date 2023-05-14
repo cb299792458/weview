@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: weview_production
-  username: weview
-  password: <%= ENV["WEVIEW_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: weview_production
+  # username: weview
+  # password: <%= ENV["WEVIEW_DATABASE_PASSWORD"] %>
